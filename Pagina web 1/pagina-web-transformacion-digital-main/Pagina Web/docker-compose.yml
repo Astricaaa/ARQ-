@@ -9,4 +9,4 @@ services:
       - "8000:8000"
     volumes:
       - ../assets/documentos:/app/assets/documentos
-      - ../Pitch Inglés.mp4:/app/Pitch Inglés.mp4
+      - ../Pitch_Ingles_EDITADO.mp4:/app/Pitch_Ingles_EDITADO.mp4

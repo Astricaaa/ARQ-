@@ -9,9 +9,10 @@
     "descripcion": "Presentación audiovisual editada del proyecto ARQ."
   },
   "documentos": [
-    {"titulo": "Taller Matriz David Salinas y Melissa Castro", "archivo": "taller-matriz-david-melissa.pdf"},
-    {"titulo": "Mapas de las lecturas TIC", "archivo": "mapas-lecturas-tic.pdf"},
-    {"titulo": "R1 A1 S1 La hora de las TIC", "archivo": "hora-de-las-tic.pdf"},
-    {"titulo": "Pitch Inglés", "archivo": "pitch-ingles.pdf"}
+    {"titulo": "R1-A1-S1 La hora de las TIC", "archivo": "R1-A1-S1 La hora de las TIC.pdf"},
+    {"titulo": "R1-A2-S2 Un camino por las Tecnologías", "archivo": "R1-A2-S2 Un camino por las Tecnologías.pdf"},
+    {"titulo": "R1-A3-S3", "archivo": "R1-A3-S3.pdf"},
+    {"titulo": "R1-A4-S6 La luz de las TIC en un mundo organizacional", "archivo": "R1-A4-S6 La luz de las TIC en un mundo organizacional.pdf"},
+    {"titulo": "R2-A1-S9 Un recorrido por las experiencias TIC", "archivo": "R2-A1-S9 Un recorrido por las experiencias TIC.pdf"}
   ]
 }

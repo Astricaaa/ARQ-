@@ -27,7 +27,7 @@ def cargar_perfil():
 
 @app.get("/media/pitch-ingles.mp4")
 async def pitch_ingles():
-    return FileResponse(PROJECT_DIR / "Pitch Inglés.mp4", media_type="video/mp4")
+    return FileResponse(PROJECT_DIR / "Pitch_Ingles_EDITADO.mp4", media_type="video/mp4")
 
 
 @app.get("/", response_class=HTMLResponse)

@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ["Pagina Web/app", "./app"]
 COPY ["assets", "./assets"]
-COPY ["Pitch Inglés.mp4", "./Pitch Inglés.mp4"]
+COPY ["Pitch_Ingles_EDITADO.mp4", "./Pitch_Ingles_EDITADO.mp4"]
 
 EXPOSE 8000
 

@@ -27,7 +27,7 @@ http://localhost:8000
 - Diseño visual: `app/static/css/estilos.css`
 - Texto y estructura: `app/templates/perfil.html`
 - Foto de perfil: `app/static/img/perfil-placeholder.svg`
-- Video editado: `../Pitch Inglés.mp4`
+- Video editado: `../Pitch_Ingles_EDITADO.mp4`
 - PDFs: `../assets/documentos/`
 
 ## Observaciones
