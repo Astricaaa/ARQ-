@@ -2,9 +2,11 @@ version: '3.9'
 
 services:
   app:
-    build: .
+    build:
+      context: ..
+      dockerfile: Pagina Web/Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - ./app/static/videos:/app/app/static/videos
-      - ./app/static/documentos:/app/app/static/documentos
+      - ../assets/documentos:/app/assets/documentos
+      - ../Pitch Inglés.mp4:/app/Pitch Inglés.mp4

@@ -27,10 +27,10 @@ http://localhost:8000
 - Diseño visual: `app/static/css/estilos.css`
 - Texto y estructura: `app/templates/perfil.html`
 - Foto de perfil: `app/static/img/perfil-placeholder.svg`
-- Videos locales: `app/static/videos/`
-- PDFs: `app/static/documentos/`
+- Video editado: `../Pitch Inglés.mp4`
+- PDFs: `../assets/documentos/`
 
 ## Observaciones
 
-- Los videos y documentos se montan como volúmenes para que puedas añadir o cambiar archivos sin reconstruir la imagen.
+- El video y los documentos se montan como volúmenes para que puedas añadir o cambiar archivos sin reconstruir la imagen.
 - Si quieres cambiar tu información personal, edita `app/data/perfil.json`.

@@ -59,6 +59,11 @@
         <p>{{ perfil.video.descripcion }}</p>
         {% if perfil.video.archivo.startswith('http') %}
           <iframe class="video-player" src="{{ perfil.video.archivo | replace('watch?v=', 'embed/') }}" title="{{ perfil.video.titulo }}" allowfullscreen></iframe>
+        {% else %}
+          <video class="video-player" controls preload="metadata" playsinline aria-label="{{ perfil.video.titulo }}">
+            <source src="{{ perfil.video.archivo }}" type="video/mp4" />
+            Tu navegador no puede reproducir este video.
+          </video>
         {% endif %}
       </div>
     </section>
@@ -67,7 +72,7 @@
       <h2>Documentos</h2>
       <ul class="lista-documentos">
         {% for documento in perfil.documentos %}
-          <li>{{ documento.titulo }}</li>
+          <li><a href="{{ url_for('documents', path=documento.archivo) }}" target="_blank" rel="noreferrer">{{ documento.titulo }}</a></li>
         {% endfor %}
       </ul>
     </section>
