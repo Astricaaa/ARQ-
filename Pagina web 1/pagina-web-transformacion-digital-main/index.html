@@ -226,9 +226,9 @@
               <aside class="tour-prototype-teaser">
                 <div>
                   <p class="eyebrow">Una mirada práctica</p>
-                  <p><strong>¿Cómo se traducen estas ideas en una experiencia digital?</strong> Explora el recorrido interactivo sobre gobierno de TI, seguridad y continuidad.</p>
+                  <p><strong>¿Cómo se traducen estas ideas en una experiencia digital?</strong> Explora el prototipo interactivo sobre gobierno de TI, seguridad y continuidad.</p>
                 </div>
-                <a class="btn" href="#guided-tour" data-show-guided-link>Explorar la experiencia interactiva <span aria-hidden="true">↗</span></a>
+                <a class="btn" href="#guided-tour" data-show-guided-link>Ver prototipos <span aria-hidden="true">↗</span></a>
               </aside>
             </section>
           </div>
@@ -263,6 +263,7 @@
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#arq">Explorar el contenido <span aria-hidden="true">↓</span></a>
+              <a class="btn btn-primary" href="#guided-tour" data-show-guided-link>Prototipos <span aria-hidden="true">↗</span></a>
               <a
                 class="secondary-link"
                 href="https://pregrado.ucundinamarca.edu.co/login/index.php"
@@ -296,8 +297,7 @@
           <a href="#iso">ISO 27001</a>
           <a href="#pitch">Pitch</a>
           <a href="#sustentaciones">Sustentaciones</a>
-          <a href="#guided-tour" data-show-guided-link>Recorrido guiado</a>
-          <a href="#guided-tour" data-show-guided-link>Experiencia interactiva</a>
+          <a href="#guided-tour" data-show-guided-link>Prototipos</a>
         </div>
         <img
           src="./assets/sello.png?v=20260918"
@@ -705,9 +705,14 @@
         });
       });
 
-      themeSite.hidden = true;
-      history.replaceState(null, '', '#guided-tour');
-      showTourStep(0, false);
+      const startWithGuidedTour = location.hash === '#guided-tour';
+      guidedTour.hidden = !startWithGuidedTour;
+      themeSite.hidden = startWithGuidedTour;
+      if (startWithGuidedTour) {
+        showTourStep(0, false);
+      } else if (!location.hash) {
+        history.replaceState(null, '', '#resumen');
+      }
 
       const pdfThumbs = document.querySelectorAll('.pdf-thumb[data-file]');
       const pdfPreview = document.getElementById('pdf-preview');
