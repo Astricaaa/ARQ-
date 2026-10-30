@@ -1,0 +1,16 @@
+{
+  "nombre": "Portafolio de Transformación Digital",
+  "titulo": "Elaborado por: David Ricardo Salinas Pedrosa y Melissa Stefany Castro Pedraza",
+  "cadi": "https://pregrado.ucundinamarca.edu.co/login/index.php",
+  "bio": "Este portafolio se creó en base a necesidades académicas propuestas por actividades Transeducacionales; a lo largo del mismo se evidencian las diferentes actividades que realizamos a lo largo de este semestre. Además de un breve resumen sobre el COBIT y demás.",
+  "video": {
+    "titulo": "Pitch Inglés",
+    "archivo": "https://youtu.be/xkOpPZtF8zY",
+    "descripcion": "Video externo de prueba para verificar la visualización del contenido multimedia (Pitch Inglés)."
+  },
+  "documentos": [
+    {"titulo": "Taller Matriz David Salinas Y Melissa Castro"},
+    {"titulo": "Mapas de las lecturas TIC"},
+    {"titulo": "R1 A1 S1 La hora de las TIC"}
+  ]
+}

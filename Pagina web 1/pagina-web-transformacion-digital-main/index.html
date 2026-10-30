@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gobernanza, seguridad y cultura digital en Banco ARQ."
+    />
+    <title>Modelos de gestión tic y cultura digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <section
+        class="guided-tour"
+        id="guided-tour"
+        aria-labelledby="tour-title"
+        aria-describedby="tour-description"
+      >
+        <div class="tour-topline">
+          <a class="brand-mark" href="#guided-tour" aria-label="Volver al inicio del recorrido">
+            <img src="./assets/arq-logo.png" alt="ARQ" />
+          </a>
+          <button class="secondary-link tour-explore-link" type="button" data-show-themes>
+            Explorar por temas
+          </button>
+        </div>
+
+        <div class="tour-shell">
+          <header class="tour-intro">
+            <p class="eyebrow">Recorrido digital · 5–7 minutos</p>
+            <h1 id="tour-title" tabindex="-1">Un servicio digital confiable no ocurre por accidente.</h1>
+            <p class="tour-description" id="tour-description">
+              Explora cómo se relacionan los servicios de ARQ, el gobierno de TI y la seguridad
+              de la información.
+            </p>
+            <div class="tour-map" aria-label="Servicio, gestión y protección, conectados">
+              <span>Servicio</span>
+              <span aria-hidden="true">→</span>
+              <span>Gestión</span>
+              <span aria-hidden="true">→</span>
+              <span>Protección</span>
+            </div>
+          </header>
+
+          <div class="tour-progress">
+            <div class="tour-progress-label">
+              <span id="tour-step-label">Paso 1 de 6</span>
+              <span>Duración aproximada: 5–7 min</span>
+            </div>
+            <progress id="tour-progress" max="6" value="1" aria-label="Progreso del recorrido"></progress>
+          </div>
+
+          <div class="tour-steps">
+            <section class="tour-step" data-tour-step="0" aria-labelledby="tour-step-0-title">
+              <p class="eyebrow">Bienvenida</p>
+              <h2 id="tour-step-0-title" tabindex="-1">¿Qué hace falta para que un servicio financiero digital sea confiable?</h2>
+              <p>
+                Primero conoceremos los servicios; después, algunas prácticas que ayudan a
+                organizarlos y gestionar su seguridad.
+              </p>
+              <div class="tour-actions tour-welcome-actions">
+                <button class="btn" type="button" data-tour-next>Comenzar recorrido <span aria-hidden="true">→</span></button>
+                <button class="secondary-link" type="button" data-show-themes>Explorar por temas</button>
+              </div>
+            </section>
+
+            <section class="tour-step" data-tour-step="1" aria-labelledby="tour-step-1-title" hidden>
+              <p class="eyebrow">01 · El servicio</p>
+              <h2 id="tour-step-1-title" tabindex="-1">¿Qué hace ARQ?</h2>
+              <p>
+                ARQ presenta servicios financieros para administrar y mover dinero entre distintos
+                países. Explora cada servicio para conocer la información disponible.
+              </p>
+              <div class="tour-choice-grid" role="group" aria-label="Servicios digitales de ARQ">
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Datos de cuenta en Estados Unidos y Europa para enviar y recibir dinero internacionalmente.">
+                  <span class="card-icon" aria-hidden="true">01</span><strong>Cuentas globales</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Conversión a dólares digitales USDs y euros digitales EURc, según la propuesta de ARQ.">
+                  <span class="card-icon" aria-hidden="true">02</span><strong>Cambio de divisas</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Tarjeta para realizar pagos en el exterior, con beneficios de cashback según la propuesta de ARQ.">
+                  <span class="card-icon" aria-hidden="true">03</span><strong>Tarjeta internacional</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Acceso a cuentas remuneradas, acciones e inversiones en fondos cotizados internacionales.">
+                  <span class="card-icon" aria-hidden="true">04</span><strong>Ahorro e inversión</strong>
+                </button>
+              </div>
+              <p class="tour-response" data-tour-response aria-live="polite">
+                Selecciona un servicio para conocer más.
+              </p>
+              <p class="tour-transition"><strong>Para ofrecerlos de forma confiable,</strong> ¿qué debe coordinarse?</p>
+            </section>
+
+            <section class="tour-step" data-tour-step="2" aria-labelledby="tour-step-2-title" hidden>
+              <p class="eyebrow">02 · La gestión</p>
+              <h2 id="tour-step-2-title" tabindex="-1">COBIT 2019 ayuda a organizar la gestión de TI.</h2>
+              <p>
+                Explora cuatro áreas que se relacionan con las responsabilidades, los riesgos y
+                la supervisión de los servicios tecnológicos.
+              </p>
+              <div class="tour-choice-grid" role="group" aria-label="Áreas relacionadas con la gestión de TI">
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Definir controles de acceso, autenticación y cifrado forma parte del enfoque de protección descrito en el proyecto.">
+                  <span class="card-icon" aria-hidden="true">01</span><strong>Proteger los datos</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Los procesos pueden favorecer la precisión y la trazabilidad de la información en las transacciones.">
+                  <span class="card-icon" aria-hidden="true">02</span><strong>Mantener transacciones confiables</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="La planificación de continuidad y recuperación prepara a la organización para responder ante interrupciones.">
+                  <span class="card-icon" aria-hidden="true">03</span><strong>Planificar la continuidad</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="COBIT propone organizar responsabilidades para evaluar riesgos y supervisar obligaciones aplicables.">
+                  <span class="card-icon" aria-hidden="true">04</span><strong>Supervisar riesgos y obligaciones</strong>
+                </button>
+              </div>
+              <p class="tour-response" data-tour-response aria-live="polite">
+                Selecciona un área para ver cómo se relaciona con la gestión de TI.
+              </p>
+              <details class="tour-detail">
+                <summary>Ver enfoque de gobernanza</summary>
+                <p>
+                  La propuesta distingue la supervisión estratégica de la Junta Directiva de la
+                  gestión operativa del equipo de TI.
+                </p>
+              </details>
+              <p class="tour-note">
+                COBIT 2019 es un marco de gobierno y gestión de tecnología; presentarlo aquí no
+                significa que Banco ARQ esté certificado o cumpla con él.
+              </p>
+            </section>
+
+            <section class="tour-step" data-tour-step="3" aria-labelledby="tour-step-3-title" hidden>
+              <p class="eyebrow">03 · La protección</p>
+              <h2 id="tour-step-3-title" tabindex="-1">La seguridad de la información tiene varios objetivos.</h2>
+              <p>
+                ISO/IEC 27001:2022 ofrece un marco para gestionar la seguridad. Explora estos tres
+                conceptos fundamentales.
+              </p>
+              <div class="tour-choice-grid tour-choice-grid-three" role="group" aria-label="Objetivos de seguridad de la información">
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Confidencialidad: controles orientados a limitar quién puede acceder a la información.">
+                  <span class="card-icon" aria-hidden="true">01</span><strong>Confidencialidad</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Integridad: procesos destinados a mantener la exactitud de la información y las operaciones.">
+                  <span class="card-icon" aria-hidden="true">02</span><strong>Integridad</strong>
+                </button>
+                <button class="tour-choice" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Disponibilidad: planificación de continuidad y redundancia para responder ante interrupciones.">
+                  <span class="card-icon" aria-hidden="true">03</span><strong>Disponibilidad</strong>
+                </button>
+              </div>
+              <p class="tour-response" data-tour-response aria-live="polite">
+                Selecciona un objetivo para leer una explicación sencilla.
+              </p>
+              <p class="tour-note">
+                Un marco orienta la gestión de la seguridad, pero no garantiza que nunca ocurran
+                incidentes.
+              </p>
+            </section>
+
+            <section class="tour-step" data-tour-step="4" aria-labelledby="tour-step-4-title" hidden>
+              <p class="eyebrow">04 · Un ejemplo educativo</p>
+              <h2 id="tour-step-4-title" tabindex="-1">¿Qué habría que considerar ante una interrupción?</h2>
+              <p>
+                <strong>Ejemplo educativo:</strong> un servicio de cambio de divisas deja de estar
+                disponible temporalmente. Explora los aspectos que pueden ayudar a analizar la
+                situación. Todos pueden ser relevantes.
+              </p>
+              <div class="tour-choice-grid" role="group" aria-label="Aspectos para explorar en el ejemplo">
+                <button class="tour-choice tour-choice-toggle" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="La planificación de continuidad ayuda a considerar cómo responder a una interrupción y prepararse para recuperar el servicio.">
+                  <span class="card-icon" aria-hidden="true">01</span><strong>Continuidad del servicio</strong>
+                </button>
+                <button class="tour-choice tour-choice-toggle" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Las responsabilidades definidas ayudan a coordinar la respuesta y la comunicación entre las personas involucradas.">
+                  <span class="card-icon" aria-hidden="true">02</span><strong>Comunicación y responsabilidades</strong>
+                </button>
+                <button class="tour-choice tour-choice-toggle" type="button" aria-pressed="false" data-tour-choice
+                  data-detail="Durante una interrupción también se consideran controles para preservar la protección y la integridad de la información.">
+                  <span class="card-icon" aria-hidden="true">03</span><strong>Protección e integridad de la información</strong>
+                </button>
+              </div>
+              <p class="tour-response" data-tour-response aria-live="polite">
+                Puedes explorar uno o varios aspectos; no hay una única respuesta.
+              </p>
+              <p class="tour-note">
+                Este escenario sirve para explicar los conceptos: no describe un procedimiento
+                interno confirmado de Banco ARQ.
+              </p>
+            </section>
+
+            <section class="tour-step" data-tour-step="5" aria-labelledby="tour-step-5-title" hidden>
+              <p class="eyebrow">05 · El mapa completo</p>
+              <h2 id="tour-step-5-title" tabindex="-1">Tres piezas que se relacionan.</h2>
+              <div class="tour-map tour-map-summary" aria-label="ARQ ofrece servicios, COBIT organiza el gobierno y la gestión de TI, e ISO 27001 aporta un marco para gestionar la seguridad de la información">
+                <span><strong>ARQ</strong><small>Servicios digitales</small></span>
+                <span aria-hidden="true">→</span>
+                <span><strong>COBIT</strong><small>Gobierno y gestión de TI</small></span>
+                <span aria-hidden="true">→</span>
+                <span><strong>ISO 27001</strong><small>Gestión de la seguridad</small></span>
+              </div>
+              <p class="tour-closing">
+                La confianza digital depende de cómo se diseñan, gestionan y protegen los servicios.
+              </p>
+              <div class="tour-actions tour-closing-actions">
+                <button class="btn" type="button" data-show-themes data-theme-target="pitch">Ver el Pitch <span aria-hidden="true">↗</span></button>
+                <button class="btn btn-preview" type="button" data-show-themes data-theme-target="sustentaciones">Consultar sustentaciones <span aria-hidden="true">→</span></button>
+                <button class="secondary-link" type="button" data-show-themes data-theme-target="arq">Explorar los temas</button>
+              </div>
+              <aside class="tour-prototype-teaser">
+                <div>
+                  <p class="eyebrow">Una mirada práctica</p>
+                  <p><strong>¿Cómo se traducen estas ideas en una experiencia digital?</strong> Explora cuatro prototipos interactivos; son demos educativas con datos ilustrativos.</p>
+                </div>
+                <a class="btn" href="./prototipos/" data-prototype-link>Descubrir los prototipos <span aria-hidden="true">↗</span></a>
+              </aside>
+            </section>
+          </div>
+
+          <nav class="tour-navigation" aria-label="Controles del recorrido">
+            <button class="btn btn-preview" id="tour-previous" type="button" disabled>← Anterior</button>
+            <button class="btn" id="tour-next" type="button" data-tour-next>Siguiente →</button>
+            <button class="secondary-link" id="tour-finish" type="button" data-show-themes data-theme-target="arq" hidden>Finalizar y explorar temas</button>
+          </nav>
+        </div>
+      </section>
+
+      <div class="theme-site" id="theme-site" hidden>
+      <button class="secondary-link return-to-tour" type="button" data-show-tour>← Volver al recorrido guiado</button>
+      <header class="hero">
+        <div class="hero-topline">
+          <a class="brand-mark" href="#resumen" aria-label="Ir al inicio">
+            <img src="./assets/arq-logo.png" alt="ARQ" />
+          </a>
+        </div>
+
+        <div class="hero-grid" id="resumen">
+          <div class="hero-copy">
+            <p class="eyebrow">Gobernanza · seguridad · cultura digital</p>
+            <h1>Modelos de gestión tic y cultura digital</h1>
+            <p class="subtitle">
+              Cómo gestionamos la tecnología y contribuimos a cuidar los servicios digitales.
+            </p>
+            <p class="hero-description">
+              Conoce los marcos y prácticas que orientan el gobierno de TI, la gestión de riesgos
+              y la continuidad de los servicios digitales de Banco ARQ.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#arq">Explorar el contenido <span aria-hidden="true">↓</span></a>
+              <a
+                class="secondary-link"
+                href="https://pregrado.ucundinamarca.edu.co/login/index.php"
+                target="_blank"
+                rel="noreferrer"
+                >Visitar CADI <span aria-hidden="true">↗</span></a
+              >
+                <a class="secondary-link" href="#sustentaciones"
+                  >Sustentaciones <span aria-hidden="true">↓</span></a
+                >
+            </div>
+          </div>
+
+          <div class="hero-collage" aria-label="ARQ y COBIT 2019">
+            <div class="collage-tile arq-tile">
+              <img src="./assets/arq-logo.png" alt="Identidad visual de ARQ" />
+            </div>
+            <div class="collage-tile cobit-tile">
+              <img src="./assets/cobit-2019-mark.svg" alt="Identidad visual de COBIT 2019" />
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <nav class="nav-panel" aria-label="Índice de secciones">
+        <div class="nav-links">
+          <a href="#resumen" aria-current="location">Resumen</a>
+          <a href="#arq">ARQ</a>
+          <a href="#cobit">COBIT 2019</a>
+          <a href="#iso">ISO 27001</a>
+          <a href="#pitch">Pitch</a>
+          <a href="#sustentaciones">Sustentaciones</a>
+          <a href="#guided-tour" data-show-guided-link>Recorrido guiado</a>
+          <a href="./prototipos/" data-prototype-link>Prototipo</a>
+        </div>
+        <img
+          src="./assets/sello.png?v=20260918"
+          alt="Sello de acreditación institucional de alta calidad"
+          class="seal nav-seal"
+        />
+      </nav>
+
+      <main class="content">
+        <section id="arq" class="content-section arq-section">
+          <div class="section-heading">
+            <p class="eyebrow">Finanzas globales</p>
+            <h2>ARQ y sus servicios digitales</h2>
+          </div>
+          <div class="section-copy">
+            <p>
+              ARQ es una plataforma financiera global para personas que necesitan administrar y
+              mover dinero entre distintos países. Anteriormente conocida como DollarApp,
+              conecta a viajeros, trabajadores independientes, inversores y emprendedores con
+              servicios financieros internacionales.
+            </p>
+            <h3>Qué ofrece</h3>
+            <div class="info-card-grid">
+              <article class="info-card">
+                <span class="card-icon" aria-hidden="true">01</span>
+                <h4>Cuentas globales</h4>
+                <p>
+                  Datos de cuenta propios en Estados Unidos y Europa para enviar y recibir dinero
+                  internacionalmente.
+                </p>
+              </article>
+              <article class="info-card">
+                <span class="card-icon" aria-hidden="true">02</span>
+                <h4>Cambio de divisas</h4>
+                <p>
+                  Conversión a dólares digitales USDs y euros digitales EURc, según la propuesta
+                  de ARQ, a la tasa real del mercado.
+                </p>
+              </article>
+              <article class="info-card">
+                <span class="card-icon" aria-hidden="true">03</span>
+                <h4>Tarjeta internacional</h4>
+                <p>
+                  Pagos en el exterior a la tasa de cambio real y beneficios de cashback.
+                </p>
+              </article>
+              <article class="info-card">
+                <span class="card-icon" aria-hidden="true">04</span>
+                <h4>Ahorro e inversión</h4>
+                <p>
+                  Acceso a cuentas remuneradas, acciones e inversiones en fondos cotizados
+                  internacionales.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="cobit" class="feature-section cobit-section">
+          <div class="feature-heading">
+            <p class="eyebrow">Gobernanza tecnológica</p>
+            <h2>Gobierno de TI con COBIT 2019</h2>
+          </div>
+          <div class="feature-art">
+            <img
+              src="./assets/cobit-2019-mark.svg"
+              alt="Logotipo de COBIT 2019"
+              loading="lazy"
+            />
+          </div>
+          <div class="feature-copy">
+            <div class="model-intro">
+              <h3>¿Qué aporta COBIT 2019?</h3>
+              <p>
+                Es un marco de gobierno y gestión de tecnología que ayuda a organizar
+                responsabilidades, evaluar riesgos y supervisar los servicios de TI.
+              </p>
+            </div>
+            <div class="model-structure">
+              <h3>Cómo se aplica en Banco ARQ</h3>
+              <p>
+                La propuesta distingue la supervisión estratégica, a cargo de la Junta Directiva
+                para evaluar riesgos y cumplimiento, de la gestión operativa del equipo de TI,
+                enfocada en ciberseguridad, mantenimiento y entrega de servicios.
+              </p>
+              <details class="detail-block detail-block-dark">
+                <summary>Ver enfoque de gobernanza</summary>
+                <p>
+                  La intención es que las decisiones tecnológicas se mantengan alineadas con los
+                  objetivos de la organización y que los riesgos, las responsabilidades y el
+                  desempeño de TI puedan ser supervisados.
+                </p>
+              </details>
+            </div>
+            <p>
+              <strong>Qué significa para ti:</strong> una forma estructurada de cuidar la
+              información, promover transacciones confiables y planificar la continuidad de los
+              servicios, sin prometer que los riesgos desaparecen por completo.
+            </p>
+            <h3>Áreas de trabajo</h3>
+            <div class="benefit-grid">
+              <article class="benefit-card">
+                <span class="card-icon" aria-hidden="true">01</span>
+                <h4>Protección de datos</h4>
+                <p>Enfoque en confidencialidad, cifrado, control de acceso y autenticación.</p>
+              </article>
+              <article class="benefit-card">
+                <span class="card-icon" aria-hidden="true">02</span>
+                <h4>Transacciones confiables</h4>
+                <p>Procesos que favorecen la precisión y trazabilidad de la información.</p>
+              </article>
+              <article class="benefit-card">
+                <span class="card-icon" aria-hidden="true">03</span>
+                <h4>Continuidad del servicio</h4>
+                <p>Planificación de infraestructura, disponibilidad y recuperación operativa.</p>
+              </article>
+              <article class="benefit-card">
+                <span class="card-icon" aria-hidden="true">04</span>
+                <h4>Supervisión y cumplimiento</h4>
+                <p>Responsabilidades claras para evaluar riesgos y obligaciones aplicables.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="iso" class="content-section iso-section">
+          <div class="section-heading">
+            <p class="eyebrow">Sistema de gestión de seguridad</p>
+            <h2>ISO/IEC 27001:2022</h2>
+          </div>
+          <div class="section-copy">
+            <p>
+              ISO/IEC 27001:2022 es un estándar internacional para gestionar la seguridad de la
+              información. En el contexto de Banco ARQ, sirve como referencia para organizar la
+              protección de las operaciones digitales y de la información asociada al cambio de
+              divisas.
+            </p>
+
+            <h3>Cómo se aplica en Banco ARQ</h3>
+            <p>
+              La propuesta reúne controles tecnológicos, prácticas de desarrollo seguro,
+              planificación de continuidad y formación del personal. Su aplicación debe
+              alinearse con las obligaciones regulatorias pertinentes y las características de
+              la plataforma.
+            </p>
+            <details class="detail-block">
+              <summary>Ver referencias técnicas del marco</summary>
+              <ul>
+                <li>
+                  Controles del Anexo A de ISO/IEC 27001:2022 y atención a las exigencias
+                  aplicables de la Superintendencia Financiera de Colombia.
+                </li>
+                <li>
+                  El enfoque descrito considera Zero Trust, autenticación multifactor,
+                  enmascaramiento de datos, prevención de fuga de información y cifrado AES-256
+                  en reposo y TLS 1.3 en tránsito.
+                </li>
+                <li>
+                  Redundancia geográfica y planificación de continuidad y recuperación para
+                  gestionar la disponibilidad de los servicios.
+                </li>
+                <li>
+                  Seguridad desde el diseño, prácticas de codificación segura inspiradas en OWASP
+                  Top 10 y formación contra el phishing.
+                </li>
+                <li>
+                  Oracle APEX forma parte del contexto tecnológico descrito; su uso por sí solo
+                  no demuestra cumplimiento de una norma.
+                </li>
+              </ul>
+            </details>
+
+            <h3>Qué significa para ti</h3>
+            <p>
+              Un enfoque organizado para reducir la exposición de tus datos, mantener la
+              confiabilidad de las operaciones y prepararse ante interrupciones. Estas prácticas
+              ayudan a gestionar riesgos, pero no eliminan la posibilidad de incidentes.
+            </p>
+            <h3>Objetivos de seguridad</h3>
+            <div class="security-grid">
+              <article class="security-pillar">
+                <h4>Confidencialidad</h4>
+                <p>
+                  Controles orientados a limitar el acceso a datos personales y financieros.
+                </p>
+              </article>
+              <article class="security-pillar">
+                <h4>Integridad</h4>
+                <p>
+                  Procesos para mantener la exactitud de la información y de las operaciones de
+                  cambio.
+                </p>
+              </article>
+              <article class="security-pillar">
+                <h4>Disponibilidad</h4>
+                <p>
+                  Planificación de continuidad y redundancia para responder ante interrupciones.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="pitch" class="feature-section pitch-section">
+          <div class="feature-heading">
+            <p class="eyebrow">Presentación del proyecto</p>
+            <h2>Pitch</h2>
+          </div>
+          <div class="pitch-layout">
+            <div class="pitch-copy">
+              <p class="section-intro">
+                Presentación audiovisual de la propuesta de ARQ y su valor para usuarios internacionales.
+              </p>
+            </div>
+            <div>
+              <div class="video-frame-wrap" id="video-container">
+                <video class="video-frame" controls preload="metadata" playsinline aria-label="Pitch de ARQ">
+                  <source src="./Pitch_Ingles_EDITADO.mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <p class="video-caption">Presentación del proyecto ARQ.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="sustentaciones" class="content-section docs-section">
+          <div class="section-heading">
+            <p class="eyebrow">Actividades del curso</p>
+            <h2>Sustentaciones</h2>
+          </div>
+
+          <div class="pdf-list" aria-label="Documentos de sustentación">
+            <article class="pdf-document">
+              <div>
+                <h3>R1-A1-S1 La hora de las TIC</h3>
+                <p>Autores: David Ricardo Salinas Pedrosa y Melissa Stefany Castro Pedraza</p>
+              </div>
+              <div class="pdf-actions">
+                <button
+                  class="btn btn-preview pdf-thumb"
+                  type="button"
+                  data-file="./R1-A1-S1%20La%20hora%20de%20las%20TIC.pdf"
+                  data-title="R1-A1-S1 La hora de las TIC"
+                >
+                  Vista previa
+                </button>
+                <a
+                  class="btn btn-secondary"
+                  href="./R1-A1-S1%20La%20hora%20de%20las%20TIC.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir PDF <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </article>
+            <article class="pdf-document">
+              <div>
+                <h3>R1-A2-S2 Un camino por las Tecnologías</h3>
+                <p>Autores: David Ricardo Salinas Pedrosa y Melissa Stefany Castro Pedraza</p>
+              </div>
+              <div class="pdf-actions">
+                <button
+                  class="btn btn-preview pdf-thumb"
+                  type="button"
+                  data-file="./R1-A2-S2%20Un%20camino%20por%20las%20Tecnolog%C3%ADas.pdf"
+                  data-title="R1-A2-S2 Un camino por las Tecnologías"
+                >
+                  Vista previa
+                </button>
+                <a
+                  class="btn btn-secondary"
+                  href="./R1-A2-S2%20Un%20camino%20por%20las%20Tecnolog%C3%ADas.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir PDF <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </article>
+            <article class="pdf-document">
+              <div>
+                <h3>R1-A3-S3 El espacio de las TIC: ¿Hasta dónde llegamos?</h3>
+                <p>Autores: David Ricardo Salinas Pedrosa y Melissa Stefany Castro Pedraza</p>
+              </div>
+              <div class="pdf-actions">
+                <button
+                  class="btn btn-preview pdf-thumb"
+                  type="button"
+                  data-file="./R1-A3-S3.pdf"
+                  data-title="R1-A3-S3 El espacio de las TIC: ¿Hasta dónde llegamos?"
+                >
+                  Vista previa
+                </button>
+                <a
+                  class="btn btn-secondary"
+                  href="./R1-A3-S3.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir PDF <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </article>
+            <article class="pdf-document">
+              <div>
+                <h3>R1-A4-S6 La luz de las TIC en un mundo organizacional</h3>
+                <p>Autores: David Ricardo Salinas Pedrosa y Melissa Stefany Castro Pedraza</p>
+              </div>
+              <div class="pdf-actions">
+                <button
+                  class="btn btn-preview pdf-thumb"
+                  type="button"
+                  data-file="./R1-A4-S6%20La%20luz%20de%20las%20TIC%20en%20un%20mundo%20organizacional.pdf"
+                  data-title="R1-A4-S6 La luz de las TIC en un mundo organizacional"
+                >
+                  Vista previa
+                </button>
+                <a
+                  class="btn btn-secondary"
+                  href="./R1-A4-S6%20La%20luz%20de%20las%20TIC%20en%20un%20mundo%20organizacional.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir PDF <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </article>
+            <article class="pdf-document">
+              <div>
+                <h3>R2-A1-S9 Un recorrido por las experiencias TIC</h3>
+                <p>Autores: David Ricardo Salinas Pedrosa y Melissa Stefany Castro Pedraza</p>
+              </div>
+              <div class="pdf-actions">
+                <button
+                  class="btn btn-preview pdf-thumb"
+                  type="button"
+                  data-file="./R2-A1-S9%20Un%20recorrido%20por%20las%20experiencias%20TIC.pdf"
+                  data-title="R2-A1-S9 Un recorrido por las experiencias TIC"
+                >
+                  Vista previa
+                </button>
+                <a
+                  class="btn btn-secondary"
+                  href="./R2-A1-S9%20Un%20recorrido%20por%20las%20experiencias%20TIC.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir PDF <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </article>
+          </div>
+
+          <details class="pdf-preview" id="pdf-preview">
+            <summary>Ver vista previa en la página</summary>
+            <div class="pdf-preview-panel">
+              <div class="preview-toolbar">
+                <span id="pdf-title">R1-A1-S1 La hora de las TIC</span>
+                <a
+                  class="btn btn-secondary"
+                  id="pdf-open-link"
+                  href="./R1-A1-S1%20La%20hora%20de%20las%20TIC.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir PDF <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="pdf-preview-scroll">
+                <iframe
+                  id="pdf-frame"
+                  class="pdf-frame"
+                  src="./R1-A1-S1%20La%20hora%20de%20las%20TIC.pdf#toolbar=0&amp;view=FitH"
+                  title="Vista previa de R1-A1-S1 La hora de las TIC"
+                ></iframe>
+              </div>
+            </div>
+          </details>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div>
+          <span>Modelos de gestión tic y cultura digital</span>
+          <a href="#sustentaciones">Consultar sustentaciones y documentos</a>
+        </div>
+        <a href="#resumen">Volver al inicio ↑</a>
+      </footer>
+      </div>
+    </div>
+
+    <script>
+      const guidedTour = document.getElementById('guided-tour');
+      const themeSite = document.getElementById('theme-site');
+      const tourSteps = [...document.querySelectorAll('[data-tour-step]')];
+      const tourProgress = document.getElementById('tour-progress');
+      const tourStepLabel = document.getElementById('tour-step-label');
+      const previousTourButton = document.getElementById('tour-previous');
+      const nextTourButton = document.getElementById('tour-next');
+      const finishTourButton = document.getElementById('tour-finish');
+      let currentTourStep = 0;
+      const returnContextKey = 'arq-prototype-return-context';
+
+      const showTourStep = (step, moveFocus = true) => {
+        currentTourStep = Math.max(0, Math.min(step, tourSteps.length - 1));
+        tourSteps.forEach((tourStep, index) => {
+          tourStep.hidden = index !== currentTourStep;
+        });
+
+        tourProgress.value = currentTourStep + 1;
+        tourStepLabel.textContent = `Paso ${currentTourStep + 1} de ${tourSteps.length}`;
+        previousTourButton.disabled = currentTourStep === 0;
+        nextTourButton.hidden = currentTourStep === tourSteps.length - 1;
+        finishTourButton.hidden = currentTourStep !== tourSteps.length - 1;
+
+        if (moveFocus) {
+          tourSteps[currentTourStep].querySelector('h2').focus();
+        }
+      };
+
+      document.querySelectorAll('[data-tour-next]').forEach((button) => {
+        button.addEventListener('click', () => showTourStep(currentTourStep + 1));
+      });
+
+      previousTourButton.addEventListener('click', () => showTourStep(currentTourStep - 1));
+
+      document.querySelectorAll('[data-tour-choice]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const step = button.closest('[data-tour-step]');
+          const isMultiSelect = button.classList.contains('tour-choice-toggle');
+          const nextPressed = isMultiSelect
+            ? button.getAttribute('aria-pressed') !== 'true'
+            : true;
+
+          if (!isMultiSelect) {
+            step.querySelectorAll('[data-tour-choice]').forEach((choice) => {
+              choice.setAttribute('aria-pressed', String(choice === button));
+            });
+          } else {
+            button.setAttribute('aria-pressed', String(nextPressed));
+          }
+
+          const response = step.querySelector('[data-tour-response]');
+          if (isMultiSelect) {
+            const selectedChoices = [...step.querySelectorAll('[data-tour-choice][aria-pressed="true"]')];
+            response.textContent = selectedChoices.length
+              ? selectedChoices.map((choice) => choice.dataset.detail).join(' ')
+              : 'Puedes explorar uno o varios aspectos; no hay una única respuesta.';
+          } else {
+            response.textContent = button.dataset.detail;
+          }
+        });
+      });
+
+      const showThemes = (targetId) => {
+        guidedTour.hidden = true;
+        themeSite.hidden = false;
+        history.replaceState(null, '', targetId ? `#${targetId}` : '#resumen');
+
+        const target = targetId ? document.getElementById(targetId) : document.getElementById('resumen');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const heading = target.querySelector('h1, h2');
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          heading.focus({ preventScroll: true });
+        }
+      };
+
+      const showGuidedTour = () => {
+        themeSite.hidden = true;
+        guidedTour.hidden = false;
+        history.replaceState(null, '', '#guided-tour');
+        showTourStep(0, false);
+        document.getElementById('tour-title').focus();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const savePrototypeReturnContext = () => {
+        const context = {
+          view: guidedTour.hidden ? 'themes' : 'tour',
+          step: currentTourStep,
+          scrollY: window.scrollY,
+          hash: location.hash,
+        };
+        sessionStorage.setItem(returnContextKey, JSON.stringify(context));
+      };
+
+      const restorePrototypeReturnContext = () => {
+        const savedContext = sessionStorage.getItem(returnContextKey);
+        if (!savedContext) {
+          return false;
+        }
+
+        sessionStorage.removeItem(returnContextKey);
+        let context;
+        try {
+          context = JSON.parse(savedContext);
+        } catch (error) {
+          console.error('No se pudo leer la posición guardada antes de abrir los prototipos.', error);
+          return false;
+        }
+
+        if (
+          !context ||
+          !['tour', 'themes'].includes(context.view) ||
+          !Number.isInteger(context.step) ||
+          !Number.isFinite(context.scrollY)
+        ) {
+          console.error('La posición guardada para volver desde los prototipos no es válida.');
+          return false;
+        }
+
+        if (context.view === 'themes') {
+          guidedTour.hidden = true;
+          themeSite.hidden = false;
+          history.replaceState(null, '', context.hash || '#resumen');
+        } else {
+          themeSite.hidden = true;
+          guidedTour.hidden = false;
+          history.replaceState(null, '', '#guided-tour');
+          showTourStep(context.step, false);
+        }
+
+        const scrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, context.scrollY);
+        document.documentElement.style.scrollBehavior = scrollBehavior;
+        return true;
+      };
+
+      document.querySelectorAll('[data-show-themes]').forEach((button) => {
+        button.addEventListener('click', () => showThemes(button.dataset.themeTarget));
+      });
+
+      document.querySelectorAll('[data-show-tour], [data-show-guided-link]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          showGuidedTour();
+        });
+      });
+
+      document.querySelectorAll('[data-prototype-link]').forEach((link) => {
+        link.addEventListener('click', savePrototypeReturnContext);
+      });
+
+      const restoredReturnContext =
+        location.hash === '#return' && restorePrototypeReturnContext();
+      if (!restoredReturnContext) {
+        sessionStorage.removeItem(returnContextKey);
+        themeSite.hidden = true;
+        history.replaceState(null, '', '#guided-tour');
+        showTourStep(0, false);
+      }
+
+      const pdfThumbs = document.querySelectorAll('.pdf-thumb[data-file]');
+      const pdfPreview = document.getElementById('pdf-preview');
+      const pdfFrame = document.getElementById('pdf-frame');
+      const pdfTitle = document.getElementById('pdf-title');
+      const openLink = document.getElementById('pdf-open-link');
+
+      pdfThumbs.forEach((button) => {
+        button.addEventListener('click', () => {
+          const file = button.dataset.file;
+          const title = button.dataset.title;
+
+          pdfPreview.open = true;
+          pdfFrame.src = `${file}#toolbar=0&view=FitH`;
+          pdfFrame.title = `Vista previa de ${title}`;
+          pdfTitle.textContent = title;
+          openLink.href = file;
+          pdfPreview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      const sectionLinks = document.querySelectorAll(
+        '.nav-panel a:not([data-show-guided-link]):not([data-prototype-link])',
+      );
+      const observedSections = [...sectionLinks]
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const updateActiveLink = () => {
+        const nav = document.querySelector('.nav-panel');
+        let activeSection = observedSections[0];
+
+        const stickyTop = Number.parseFloat(window.getComputedStyle(nav).top);
+        if (nav.getBoundingClientRect().top <= stickyTop) {
+          const activationLine = nav.getBoundingClientRect().bottom + 40;
+          observedSections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= activationLine) {
+              activeSection = section;
+            }
+          });
+        }
+
+        sectionLinks.forEach((link) => {
+          if (link.hash === `#${activeSection.id}`) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', updateActiveLink, { passive: true });
+      window.addEventListener('resize', updateActiveLink);
+      updateActiveLink();
+    </script>
+  </body>
+</html>

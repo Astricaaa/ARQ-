@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+  <header id="header" class="cabecera">
+    <div class="foto-linea">
+      <img src="{{ url_for('static', path='img/sello.svg') }}" alt="Foto de perfil" class="foto-perfil" />
+      <span>Foto de perfil</span>
+    </div>
+
+    <h1>{{ perfil.nombre }}</h1>
+    {% if perfil.titulo %}
+      <p class="titulo">{{ perfil.titulo }}</p>
+    {% endif %}
+
+    <div class="links-principales">
+      {% if perfil.cadi %}
+        <a href="{{ perfil.cadi }}" target="_blank" rel="noreferrer">CADI</a>
+      {% endif %}
+      <a href="#pitch">Pitch Inglés</a>
+      <a href="#taller">Taller Matriz David Salinas Y Melissa Castro</a>
+      <a href="#mapas">Mapas de las lecturas TIC</a>
+      <a href="#hora-tic">R1 A1 S1 La hora de las TIC</a>
+      <a href="#cobit">COBIT</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="introduccion">
+      <h2>Introducción</h2>
+      <p>{{ perfil.bio }}</p>
+    </section>
+
+    <section id="cobit" class="cobit-block">
+      <h2>COBIT (Control Objectives for Information and Related Technologies)</h2>
+      <img src="{{ url_for('static', path='img/COBIT2019.svg') }}" alt="COBIT 2019" class="cobit-imagen" />
+
+      <div class="cobit-contenido">
+        <p>es un marco de referencia internacional para el gobierno y la gestión de las tecnologías de la información (TI) en las organizaciones.</p>
+        <p>En términos simples, COBIT ayuda a las empresas a asegurarse de que la tecnología que usan esté realmente alineada con sus objetivos de negocio, que se use de forma eficiente, que los riesgos estén controlados y que se cumplan las normativas aplicables.</p>
+
+        <h3>¿Para qué sirve?</h3>
+        <ul>
+          <li>Conectar las decisiones de TI con las metas estratégicas de la empresa.</li>
+          <li>Establecer roles y responsabilidades claras sobre quién toma decisiones tecnológicas y quién las ejecuta.</li>
+          <li>Gestionar riesgos relacionados con la tecnología (seguridad, continuidad del negocio, cumplimiento legal).</li>
+          <li>Medir el desempeño de TI mediante objetivos e indicadores concretos.</li>
+        </ul>
+
+        <p>COBIT 2019, la versión más reciente, es desarrollada por ISACA y se distingue por ser más flexible que versiones anteriores: permite que cada organización adapte el marco según su tamaño, industria y necesidades específicas, en lugar de aplicar un modelo único para todos.</p>
+
+        <h3>¿Quién lo usa?</h3>
+        <p>principalmente auditores de TI, gerentes de tecnología, oficiales de cumplimiento y consultores, aunque cualquier persona involucrada en la toma de decisiones tecnológicas dentro de una empresa puede beneficiarse de entender sus principios básicos.</p>
+      </div>
+    </section>
+
+    <section id="multimedia">
+      <h2>Multimedia</h2>
+      <div class="bloque-video">
+        <h3>{{ perfil.video.titulo }}</h3>
+        <p>{{ perfil.video.descripcion }}</p>
+        {% if perfil.video.archivo.startswith('http') %}
+          <iframe class="video-player" src="{{ perfil.video.archivo | replace('watch?v=', 'embed/') }}" title="{{ perfil.video.titulo }}" allowfullscreen></iframe>
+        {% endif %}
+      </div>
+    </section>
+
+    <section id="documentos">
+      <h2>Documentos</h2>
+      <ul class="lista-documentos">
+        {% for documento in perfil.documentos %}
+          <li>{{ documento.titulo }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © {{ perfil.nombre }} · Todos los derechos reservados
+  </footer>
+{% endblock %}

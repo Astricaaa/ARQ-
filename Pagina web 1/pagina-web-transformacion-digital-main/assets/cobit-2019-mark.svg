@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240">
+  <rect width="1200" height="240" fill="#f6f6f6"/>
+  <rect x="30" y="30" width="1140" height="180" rx="12" fill="#ffffff" stroke="#d5d5d5" stroke-width="2"/>
+  <text x="600" y="110" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" fill="#0a2d4d">COBIT 2019</text>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#5f5f5f">Framework de gobierno y gestión de TI</text>
+</svg>
