@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Portal transaccional · Oracle APEX · Banco ARQ</title>
+<style>
+:root{--tx:#10281b;--mu:#5a7365;--g:#0a7d3c;--gl:#e8f5ee;--bd:#d5e6dc;--bad:#b42318;--bl:#fdeceb;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fff;color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:12px 18px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:space-between;border-bottom:3px solid var(--g)}
+.brand{font-size:18px;color:var(--g)}.brand small{color:var(--mu);font-weight:400}.s{font-size:12.5px;color:var(--mu)}
+.tabs{display:flex;gap:6px;padding:8px 14px 0;overflow-x:auto;border-bottom:1px solid var(--bd)}
+.tabs button{border:0;background:none;color:var(--mu);padding:10px 14px;font:600 14px system-ui,sans-serif;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}.tabs button.on{color:var(--g);border-color:var(--g)}
+main{max-width:1050px;margin:0 auto;padding:16px 14px 40px}
+.lg{max-width:380px;margin:8vh auto;padding:0 14px}
+h2{margin:4px 0 2px;font-size:20px}h3{margin:0 0 8px;font-size:15px}.lead{color:var(--mu);margin:0 0 14px;font-size:14px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:14px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px}.g2 .card{margin:0}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:12px}
+.kpi{background:var(--gl);border-radius:10px;padding:10px 12px}.kpi small{display:block;color:var(--mu);font-size:12px}.kpi b{font-size:18px;color:var(--g)}
+label{display:block;font-size:13px;color:var(--mu);margin:8px 0 3px}
+input,select{width:100%;padding:9px 10px;border:1px solid var(--bd);border-radius:8px;background:#fff;color:var(--tx);font:inherit}
+.btn{background:var(--g);color:#fff;border:0;border-radius:8px;padding:9px 14px;font:600 14px system-ui,sans-serif;cursor:pointer;margin:10px 6px 0 0}.btn:disabled{opacity:.5}
+.ko{color:var(--bad)}.oc{color:var(--g)}.rate{font-size:24px;font-weight:700;color:var(--g)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mu);font-weight:600;white-space:nowrap}
+td.n{background:var(--bl)}td.y{background:var(--gl)}
+ul.l{list-style:none;margin:0;padding:0;font-size:13px;max-height:200px;overflow:auto}ul.l li{padding:5px 0;border-bottom:1px dashed var(--bd)}
+code{background:var(--gl);padding:1px 5px;border-radius:4px;font-size:12px}s{color:var(--mu)}
+.ib{margin-bottom:14px}.bl2{display:grid;grid-template-columns:170px 1fr;gap:8px;align-items:center;font-size:12.5px;margin-top:4px}
+.br{background:var(--gl);border-radius:6px;height:12px;overflow:hidden}.br i{display:block;height:100%;background:#e3b5b0}.br i.b{background:var(--g)}
+</style></head><body>
+<div class="lg" id="lg"><div class="card"><div class="brand"><b>🌿 Banco ARQ</b></div><p class="s">Acceso seguro al Portal APEX · prototipo</p>
+<label for="u">Usuario</label><input id="u" value="cliente.demo" autocomplete="off"><label for="p">Clave</label><input id="p" type="password" placeholder="Arq#2026" autocomplete="off">
+<div id="mf" hidden><label for="m">Código MFA</label><input id="m" maxlength="6" inputmode="numeric"></div>
+<button class="btn" id="lb">Ingresar</button><div id="le" style="margin-top:8px;font-size:13.5px"></div><p class="s">Demo: usuario cliente.demo · clave Arq#2026</p></div></div>
+
+<div id="app" hidden>
+<header><b class="brand">🌿 Banco ARQ <small>· Portal Oracle APEX</small></b><span class="s">👤 Camila Restrepo · C-1042 · 🔒 TLS 1.3 · MFA verificado</span></header>
+<nav class="tabs"><button data-t="operar">Operar COP ⇄ USD</button><button data-t="solicitudes">Gestión de solicitudes</button><button data-t="apex">Qué cambia con APEX</button></nav>
+<main>
+<section id="s-operar"><h2>Operaciones en línea</h2><p class="lead">Una sola fuente de datos, tasa en tiempo real y confirmación inmediata, sin abrir tickets.</p>
+<div class="g2"><div class="card"><h3>Conversión y transferencia</h3><div class="kp" id="bal"></div>
+<div class="s">Tasa de referencia (simulada) <span class="rate" id="rate">$4020.00</span> <b id="dl">▲</b><br>Fuente única ARQ-DWH-01 · sincronizado <span id="sync">—</span></div>
+<label for="amt">Monto en COP</label><input id="amt" type="number" min="0" step="10000" placeholder="Ej: 2000000">
+<div style="margin-top:8px">Recibirás: <b class="oc" id="out">—</b> <span class="s">(spread 0,6%)</span></div>
+<button class="btn" id="go">Solicitar transferencia</button>
+<div id="otp" hidden><label for="code">Código OTP de 6 dígitos</label><input id="code" inputmode="numeric" maxlength="6"><button class="btn" id="ok">Confirmar</button></div><div id="msg" style="min-height:22px;margin-top:8px;font-size:13.5px"></div></div>
+<div class="card"><h3>Bitácora de auditoría <span class="s">(hash SHA-256 encadenado)</span></h3><ul class="l" id="aud"></ul></div></div>
+<div class="card"><h3>Movimientos de esta sesión</h3><div class="tw"><table><thead><tr><th>ID</th><th>COP</th><th>USD</th><th>Tasa</th><th>Tiempo</th></tr></thead><tbody id="tx"></tbody></table></div></div></section>
+
+<section id="s-solicitudes" hidden><h2>Gestión de solicitudes con flujo automatizado</h2><p class="lead">APEX enruta cada solicitud por reglas: las simples se resuelven al instante y las demás van directo al analista con un SLA visible.</p>
+<div class="card"><label for="rt">Tipo de solicitud</label><select id="rt"><option value="cert">Certificación bancaria</option><option value="dat">Actualización de datos de contacto</option><option value="lim">Aumento de límite diario</option><option value="rec">Reclamo de transferencia</option></select><button class="btn" id="rs">Enviar solicitud</button></div>
+<div class="card"><h3>Mis solicitudes</h3><div class="tw"><table><thead><tr><th>ID</th><th>Solicitud</th><th>Ruta APEX</th><th>Estado</th><th>Antes (ticket)</th></tr></thead><tbody id="rq"><tr><td colspan="5" class="s">Aún no has enviado solicitudes.</td></tr></tbody></table></div></div></section>
+
+<section id="s-apex" hidden><h2>Qué cambia al migrar a Oracle APEX</h2><p class="lead">Comparación entre el esquema actual de ARQ y la propuesta (datos hipotéticos).</p>
+<div class="card"><div class="tw"><table><thead><tr><th>Aspecto</th><th>Actual en ARQ</th><th>Con Oracle APEX</th></tr></thead><tbody>
+<tr><td><b>Fuente de datos</b></td><td class="n">5 sistemas aislados y copias manuales</td><td class="y">Esquema único ARQ-DWH-01 expuesto por ORDS</td></tr>
+<tr><td><b>Solicitudes</b></td><td class="n">Ticket manual a Soporte</td><td class="y">Flujo con reglas y autoservicio</td></tr>
+<tr><td><b>Tasa COP-USD</b></td><td class="n">Consulta manual con rezago</td><td class="y">Servicio en línea, actualización en segundos</td></tr>
+<tr><td><b>Seguridad</b></td><td class="n">Roles amplios y claves compartidas</td><td class="y">SSO, MFA, roles por esquema y OTP por transacción</td></tr>
+<tr><td><b>Auditoría</b></td><td class="n">Logs dispersos</td><td class="y">Bitácora central con hash encadenado</td></tr>
+<tr><td><b>Seguimiento</b></td><td class="n">Sin trazabilidad para el cliente</td><td class="y">Estado visible en tiempo real</td></tr>
+<tr><td><b>Desarrollo</b></td><td class="n">Meses por cada cambio</td><td class="y">Low-code: semanas</td></tr></tbody></table></div></div>
+<div class="card"><h3>Mejoras medibles</h3><div id="im"></div></div></section>
+</main></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],fmt=n=>n.toLocaleString("es-CO");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let st=0,tr=0,code="";
+function fail(){tr++;$("#le").className="ko";$("#le").textContent=tr>=3?"Acceso bloqueado por 3 intentos fallidos.":"Credenciales incorrectas ("+tr+"/3).";if(tr>=3)$("#lb").disabled=true}
+$("#lb").onclick=()=>{if(st==0){if($("#u").value=="cliente.demo"&&$("#p").value=="Arq#2026"){st=1;code=String(Math.floor(1e5+Math.random()*9e5));$("#mf").hidden=false;$("#le").className="oc";$("#le").textContent="Código MFA enviado (demo): "+code;$("#lb").textContent="Verificar MFA"}else fail()}else if($("#m").value==code){$("#lg").hidden=true;$("#app").hidden=false;init()}else fail()};
+const T=["operar","solicitudes","apex"];
+function show(k){if(!T.includes(k))k="operar";T.forEach(t=>$("#s-"+t).hidden=t!==k);$$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===k))}
+$$(".tabs button").forEach(b=>b.onclick=()=>{location.hash=b.dataset.t});addEventListener("hashchange",()=>show(location.hash.slice(1)));
+const c={cop:48250000,usd:3200};let rate=4020,otp="",pend=0,tries=0,prev="GENESIS",t0=0,rn=0;
+function paint(){$("#bal").innerHTML=`<div class="kpi"><small>Saldo COP</small><b>$${fmt(c.cop)}</b></div><div class="kpi"><small>Saldo USD</small><b>US$${fmt(c.usd)}</b></div><div class="kpi"><small>Documento</small><b>1020***884</b></div>`;conv()}
+function conv(){const a=+$("#amt").value;$("#out").textContent=a>0?"US$ "+(a/rate*.994).toFixed(2):"—"}
+function tick(){const o=rate;rate=Math.max(3900,Math.min(4150,rate+(Math.random()-.5)*10));$("#rate").textContent="$"+rate.toFixed(2);const d=$("#dl");d.textContent=rate>=o?"▲":"▼";d.className=rate>=o?"oc":"ko";$("#sync").textContent=new Date().toLocaleTimeString("es-CO");conv()}
+async function log(ev,d){const t=new Date().toISOString().slice(11,19);let h="n/d";try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(prev+t+ev+d));h=[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("").slice(0,12);prev=h}catch(e){}$("#aud").insertAdjacentHTML("afterbegin",`<li><code>${h}</code> ${t} <b>${esc(ev)}</b> ${esc(d)}</li>`)}
+const msg=(t,bad)=>{$("#msg").className=bad?"ko":"oc";$("#msg").textContent=t};
+$("#amt").oninput=()=>{if(!t0)t0=Date.now();conv()};
+$("#go").onclick=()=>{const a=+$("#amt").value;if(!(a>=100000))return msg("Monto mínimo: $100.000 COP.",1);if(a>c.cop)return msg("Saldo insuficiente.",1);if(a>80000000){log("ALERTA","Límite diario excedido");return msg("Supera el límite diario de $80.000.000 (control antifraude).",1)}pend=a;tries=0;otp=String(Math.floor(1e5+Math.random()*9e5));$("#otp").hidden=false;$("#code").value="";msg("Código enviado al celular registrado (demo): "+otp)};
+$("#ok").onclick=async()=>{if(!pend)return;if($("#code").value!==otp){tries++;if(tries>=3){pend=0;$("#otp").hidden=true;log("BLOQUEO","3 intentos OTP fallidos");return msg("Operación bloqueada tras 3 intentos fallidos.",1)}return msg("Código incorrecto. Intento "+tries+"/3.",1)}
+const usd=+(pend/rate*.994).toFixed(2),id="TX-"+Math.floor(1e5+Math.random()*9e5),sec=t0?Math.max(1,Math.round((Date.now()-t0)/1000)):1;c.cop-=pend;c.usd=+(c.usd+usd).toFixed(2);
+$("#tx").insertAdjacentHTML("afterbegin",`<tr><td>${id}</td><td>$${fmt(pend)}</td><td>US$${fmt(usd)}</td><td>${rate.toFixed(2)}</td><td>${sec} s <s>(antes ~48 h)</s></td></tr>`);await log("TRANSFER",id+" · $"+fmt(pend)+" COP");pend=0;t0=0;$("#otp").hidden=true;$("#amt").value="";msg("Transferencia "+id+" aplicada en "+sec+" s.");paint()};
+const R={cert:["Certificación bancaria",1,0],dat:["Actualización de datos",1,0],lim:["Aumento de límite diario",0,4],rec:["Reclamo de transferencia",0,24]};
+$("#rs").onclick=()=>{const r=R[$("#rt").value],id="SOL-"+(1040+ ++rn);if(rn==1)$("#rq").innerHTML="";$("#rq").insertAdjacentHTML("afterbegin",`<tr id="${id}"><td>${id}</td><td>${r[0]}</td><td>${r[1]?"Automática":"Analista"}</td><td>Validando reglas…</td><td>~48 h</td></tr>`);
+setTimeout(()=>{$("#"+id).children[3].innerHTML=r[1]?'<b class="oc">✔ Resuelta automáticamente en 2 s</b>':`En cola del analista · SLA ${r[2]} h`;log("SOLICITUD",id+" · "+r[0])},1600)};
+const IM=[["Tiempo de atención de una solicitud",48,4,"h"],["Sistemas consultados por operación",5,1,""],["Errores de conciliación",6.2,.8,"%"],["Tiempo para publicar una pantalla",6,1,"sem"]];
+$("#im").innerHTML=IM.map(r=>`<div class="ib"><b>${r[0]}</b><div class="bl2"><span>Actual · ${r[1]} ${r[3]}</span><div class="br"><i style="width:100%"></i></div></div><div class="bl2"><span>APEX · ${r[2]} ${r[3]} (−${Math.round((1-r[2]/r[1])*100)}%)</span><div class="br"><i class="b" style="width:${Math.max(3,r[2]/r[1]*100)}%"></i></div></div></div>`).join("");
+function init(){show(location.hash.slice(1));paint();tick();setInterval(tick,2500);log("SESIÓN","Inicio autenticado con MFA · C-1042")}
+</script></body></html>

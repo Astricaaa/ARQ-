@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Chatbot y seguimiento de tickets · Banco ARQ</title>
+<style>
+:root{--tx:#10281b;--mu:#5a7365;--g:#0a7d3c;--gl:#e8f5ee;--bd:#d5e6dc;--bad:#b42318;--bl:#fdeceb;--w:#8a5a00;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fff;color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:12px 18px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:space-between;border-bottom:3px solid var(--g)}
+.brand{font-size:18px;color:var(--g)}.brand small{color:var(--mu);font-weight:400}.s{font-size:12.5px;color:var(--mu)}
+.tabs{display:flex;gap:6px;padding:8px 14px 0;overflow-x:auto;border-bottom:1px solid var(--bd)}
+.tabs button{border:0;background:none;color:var(--mu);padding:10px 14px;font:600 14px system-ui,sans-serif;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}.tabs button.on{color:var(--g);border-color:var(--g)}
+main{max-width:1050px;margin:0 auto;padding:16px 14px 40px}.lg{max-width:380px;margin:8vh auto;padding:0 14px}
+h2{margin:4px 0 2px;font-size:20px}h3{margin:0 0 8px;font-size:15px}.lead{color:var(--mu);margin:0 0 14px;font-size:14px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--gl);border-radius:10px;padding:10px 12px}.kpi small{display:block;color:var(--mu);font-size:12px}.kpi b{font-size:19px;color:var(--g)}
+label{display:block;font-size:13px;color:var(--mu);margin:8px 0 3px}
+input,select{width:100%;padding:9px 10px;border:1px solid var(--bd);border-radius:8px;background:#fff;color:var(--tx);font:inherit}
+.btn{background:var(--g);color:#fff;border:0;border-radius:8px;padding:9px 14px;font:600 14px system-ui,sans-serif;cursor:pointer;margin:10px 6px 0 0}.btn.o{background:#fff;color:var(--g);border:1px solid var(--g);padding:5px 10px;margin:0;font-size:13px}.btn:disabled{opacity:.5}
+.ko{color:var(--bad)}.oc{color:var(--g)}.wr{color:var(--w)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--bd);white-space:nowrap}th{color:var(--mu);font-weight:600}
+.pl{padding:2px 9px;border-radius:12px;background:var(--bl);font-size:12.5px}.pl.pr{background:#fff3d6}.pl.ok{background:var(--gl);color:var(--g)}
+.chat{max-width:640px;margin:0 auto;padding:0;overflow:hidden}.chat>b{display:block;padding:10px 14px;background:var(--gl);color:var(--g)}
+#cm{height:min(430px,55vh);overflow:auto;padding:12px;display:flex;flex-direction:column;gap:7px}
+.m{max-width:86%;padding:8px 11px;border-radius:12px;font-size:14px;white-space:pre-line}.bot{background:var(--gl);align-self:flex-start}.ad{background:#fff;border:1px solid var(--g);align-self:flex-start}.me{background:var(--g);color:#fff;align-self:flex-end}.sys{align-self:center;background:#fff;border:1px dashed var(--g);text-align:center;color:var(--tx);max-width:94%}
+#qr{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}#qr button{border:1px solid var(--g);background:#fff;color:var(--g);border-radius:16px;padding:6px 12px;font:13px system-ui,sans-serif;cursor:pointer}
+.cin{display:flex;gap:6px;padding:10px;border-top:1px solid var(--bd)}.cin .btn{margin:0}
+.bar{display:grid;grid-template-columns:90px 1fr 28px;gap:8px;align-items:center;font-size:13px;margin:5px 0}.bar div{background:var(--gl);border-radius:6px;height:12px}.bar i{display:block;height:100%;border-radius:6px;background:var(--g)}
+.fl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+</style></head><body>
+<div class="lg" id="lg"><div class="card"><div class="brand"><b>🌿 Banco ARQ</b></div><p class="s">Inicio de sesión seguro · prototipo</p>
+<label for="u">Usuario</label><input id="u" value="cliente.demo" autocomplete="off"><label for="p">Clave</label><input id="p" type="password" placeholder="Arq#2026" autocomplete="off">
+<div id="mf" hidden><label for="m">Código MFA</label><input id="m" maxlength="6" inputmode="numeric"></div>
+<button class="btn" id="lb">Ingresar</button><div id="le" style="margin-top:8px;font-size:13.5px"></div><p class="s">Demo: usuario cliente.demo · clave Arq#2026</p></div></div>
+
+<div id="app" hidden>
+<header><b class="brand">🌿 Banco ARQ <small>· Atención y tickets</small></b><span class="s">👤 Camila Restrepo · C-1042 · 🔒 Sesión segura</span></header>
+<nav class="tabs"><button data-t="chat">Chat de ayuda</button><button data-t="tickets">Seguimiento de tickets</button></nav>
+<main>
+<section id="s-chat"><h2>Asistente virtual</h2><p class="lead">Si necesitas ayuda humana, el asistente te pasa con un asesor y deja registrado tu ticket con un plazo máximo de 42 horas.</p>
+<div class="card chat"><b>🌿 ARQ-Asistente · en línea</b><div id="cm" aria-live="polite"></div><div id="qr"></div><div class="cin"><input id="ci" placeholder="Escribe tu mensaje…" maxlength="300" aria-label="Mensaje"><button class="btn" id="se">Enviar</button></div></div></section>
+
+<section id="s-tickets" hidden><h2>Dashboard y base de seguimiento de tickets</h2><p class="lead">Estado en tiempo real y cumplimiento del plazo de 42 horas. Como asesor, usa “Avanzar” para mover un ticket de estado.</p>
+<div class="kp" id="kp"></div>
+<div class="card"><h3>Tickets por estado</h3><div id="bars"></div></div>
+<div class="card"><h3>Base de tickets</h3><div class="fl"><div><label for="fl">Estado</label><select id="fl"><option value="">Todos</option><option>Abierto</option><option>En proceso</option><option>Resuelto</option></select></div><div><label for="qs">Buscar (ID, cliente, categoría)</label><input id="qs"></div></div>
+<div class="tw"><table><thead><tr><th>ID</th><th>Cliente</th><th>Categoría</th><th>Prioridad</th><th>Estado</th><th>Asesor</th><th>Creado</th><th>Plazo 42 h</th><th></th></tr></thead><tbody id="tb"></tbody></table></div></div></section>
+</main></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let st=0,tr=0,code="";
+function fail(){tr++;$("#le").className="ko";$("#le").textContent=tr>=3?"Acceso bloqueado por 3 intentos fallidos.":"Credenciales incorrectas ("+tr+"/3).";if(tr>=3)$("#lb").disabled=true}
+$("#lb").onclick=()=>{if(st==0){if($("#u").value=="cliente.demo"&&$("#p").value=="Arq#2026"){st=1;code=String(Math.floor(1e5+Math.random()*9e5));$("#mf").hidden=false;$("#le").className="oc";$("#le").textContent="Código MFA enviado (demo): "+code;$("#lb").textContent="Verificar MFA"}else fail()}else if($("#m").value==code){$("#lg").hidden=true;$("#app").hidden=false;init()}else fail()};
+const T=["chat","tickets"];
+function show(k){if(!T.includes(k))k="chat";T.forEach(t=>$("#s-"+t).hidden=t!==k);$$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===k));if(k=="tickets")rend()}
+$$(".tabs button").forEach(b=>b.onclick=()=>{location.hash=b.dataset.t});addEventListener("hashchange",()=>show(location.hash.slice(1)));
+/* ---- base de tickets ---- */
+const H=36e5,now0=Date.now();let nt=3108;
+const tk=[["TK-3107","Juan Pardo","Tarjetas","Media","Resuelto","Laura M.",-80,-30],["TK-3106","Distribuidora Verde Ltda.","Seguridad","Alta","Abierto","",-43,null],["TK-3105","Marta Ibáñez","General","Baja","Abierto","",-6,null],["TK-3104","Luis Gómez","Transferencias","Media","En proceso","Carlos P.",-20,null],["TK-3103","Camila Restrepo","Seguridad","Alta","En proceso","Laura M.",-30,null],["TK-3102","Andrés Villamizar","Tarjetas","Media","Resuelto","Carlos P.",-40,-22],["TK-3101","Inversiones Aurora S.A.S.","Transferencias","Media","Resuelto","Laura M.",-60,-30]].map(r=>({id:r[0],cl:r[1],cat:r[2],p:r[3],e:r[4],a:r[5],cr:now0+r[6]*H,rs:r[7]==null?null:now0+r[7]*H}));
+const fd=t=>new Date(t).toLocaleString("es-CO",{dateStyle:"short",timeStyle:"short"});
+function rend(){const f=$("#fl").value,q=$("#qs").value.toLowerCase(),now=Date.now();
+const rows=tk.filter(t=>(!f||t.e==f)&&(t.id+t.cl+t.cat).toLowerCase().includes(q));
+$("#tb").innerHTML=rows.map(t=>{let rem,cls;if(t.rs){const h=(t.rs-t.cr)/H;rem="Resuelto en "+Math.round(h)+" h"+(h<=42?" ✔":" (fuera de plazo)");cls=h<=42?"oc":"ko"}else{const d=t.cr+42*H-now,a=Math.abs(d)/H;rem=d>0?"Quedan "+Math.floor(a)+" h "+Math.floor(a%1*60)+" min":"Vencido hace "+Math.round(a)+" h";cls=d<=0?"ko":d<6*H?"wr":"oc"}
+return `<tr><td><b>${t.id}</b></td><td>${esc(t.cl)}</td><td>${t.cat}</td><td>${t.p}</td><td><span class="pl ${t.e=="Resuelto"?"ok":t.e=="En proceso"?"pr":""}">${t.e}</span></td><td>${t.a||"—"}</td><td>${fd(t.cr)}</td><td class="${cls}">${rem}</td><td>${t.e=="Resuelto"?"":`<button class="btn o" data-i="${t.id}">Avanzar</button>`}</td></tr>`}).join("")||'<tr><td colspan="9" class="s">Sin resultados.</td></tr>';
+const res=tk.filter(t=>t.rs),okr=res.filter(t=>t.rs-t.cr<=42*H).length,ven=tk.filter(t=>!t.rs&&t.cr+42*H<now).length,avg=res.length?res.reduce((a,t)=>a+(t.rs-t.cr)/H,0)/res.length:0;
+$("#kp").innerHTML=`<div class="kpi"><small>Total de tickets</small><b>${tk.length}</b></div><div class="kpi"><small>Abiertos / en proceso</small><b>${tk.filter(t=>!t.rs).length}</b></div><div class="kpi"><small>Cumplimiento plazo 42 h</small><b>${res.length?Math.round(okr/res.length*100):100}%</b></div><div class="kpi"><small>Tiempo medio de resolución</small><b>${avg.toFixed(0)} h</b></div><div class="kpi"><small>Vencidos sin resolver</small><b class="${ven?"ko":"oc"}">${ven}</b></div>`;
+$("#bars").innerHTML=["Abierto","En proceso","Resuelto"].map(e=>{const k=tk.filter(t=>t.e==e).length;return `<div class="bar"><span>${e}</span><div><i style="width:${k/tk.length*100}%"></i></div><b>${k}</b></div>`}).join("")}
+$("#fl").onchange=rend;$("#qs").oninput=rend;
+$("#tb").onclick=e=>{const b=e.target.closest("[data-i]");if(!b)return;const t=tk.find(x=>x.id==b.dataset.i);if(t.e=="Abierto"){t.e="En proceso";t.a="Laura M."}else{t.e="Resuelto";t.rs=Date.now()}rend()};
+/* ---- chatbot ---- */
+const cm=$("#cm"),qr=$("#qr"),w=ms=>new Promise(r=>setTimeout(r,ms));let mode=0;
+function say(t,c){const d=document.createElement("div");d.className="m "+c;d.textContent=t;cm.append(d);cm.scrollTop=cm.scrollHeight}
+function opts(a){qr.replaceChildren(...a.map(([l,f])=>{const b=document.createElement("button");b.textContent=l;b.onclick=()=>{say(l,"me");f()};return b}))}
+const first=()=>[["Sí, con un asesor",asesor],["No, por ahora no",()=>{say("Entendido. Cuando quieras, escribe “asesor” y te paso con uno.","bot");opts([])}]];
+const cat=t=>/transfer|giro|envi/i.test(t)?"Transferencias":/tarjeta|cupo/i.test(t)?"Tarjetas":/clave|fraude|segur|otp|robo/i.test(t)?"Seguridad":"General";
+async function asesor(){mode=3;opts([]);await w(500);say("Con gusto. Te paso con un asesor…","bot");await w(1400);say("Laura M. (asesora verificada ✔) se unió al chat.","sys");await w(700);say("Hola Camila, soy Laura. Cuéntame tu inquietud. Por seguridad, no compartas claves, OTP ni números completos de tarjeta.","ad");mode=1;$("#ci").focus()}
+async function ticket(txt){mode=3;const id="TK-"+(nt++),c=cat(txt),p=c=="Seguridad"?"Alta":"Media",t={id,cl:"Camila Restrepo",cat:c,p,e:"Abierto",a:"Laura M.",cr:Date.now(),rs:null};tk.unshift(t);await w(900);say("Gracias, ya registré tu caso.","ad");await w(600);
+say("🎫 Ticket "+id+" creado · Categoría: "+c+" · Prioridad: "+p+"\nTu inquietud será resuelta en un tiempo menor a 42 horas (antes del "+fd(t.cr+42*H)+").","sys");
+opts([["Ver seguimiento de mis tickets",()=>{location.hash="tickets"}],["Nueva consulta",()=>{say("¿Necesitas hablar con un asesor?","bot");opts(first())}]]);mode=0}
+function send(){const i=$("#ci");let v=i.value.trim();if(!v||mode==3)return;i.value="";const s=/\d{9,}/.test(v);v=v.replace(/\d{9,}/g,"••••");say(v,"me");
+if(s)say("Por tu seguridad oculté ese número. No compartas documentos, tarjetas ni claves por chat.","bot");
+if(mode==1)return ticket(v);
+if(/asesor|humano|persona|agente/i.test(v))asesor();else{say("Puedo pasarte con un asesor para resolver tu inquietud. ¿Lo necesitas?","bot");opts(first())}}
+$("#se").onclick=send;$("#ci").onkeydown=e=>{if(e.key=="Enter")send()};
+function init(){show(location.hash.slice(1));say("Hola Camila 🌿 Soy ARQ-Asistente. Estás en una sesión segura.","bot");say("¿Necesitas hablar con un asesor?","bot");opts(first());rend()}
+</script></body></html>

@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explora los cuatro prototipos interactivos de Banco ARQ."
+    />
+    <title>Prototipos interactivos · Banco ARQ</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: #10281b;
+        background: #f5f8f6;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        --green: #0a7d3c;
+        --muted: #5a7365;
+        --border: #d5e6dc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-bar {
+        position: sticky;
+        z-index: 2;
+        top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px 18px;
+        padding: 10px clamp(14px, 3vw, 32px);
+        border-bottom: 3px solid var(--green);
+        background: #fff;
+      }
+
+      .home-link {
+        flex: 0 0 auto;
+        padding: 8px 12px;
+        border: 1px solid var(--green);
+        border-radius: 8px;
+        color: var(--green);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .prototype-nav {
+        display: flex;
+        flex: 1 1 560px;
+        justify-content: flex-end;
+        gap: 4px;
+        overflow-x: auto;
+      }
+
+      .prototype-nav a {
+        flex: 0 0 auto;
+        padding: 8px 10px;
+        border-radius: 7px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      .prototype-nav a:hover,
+      .prototype-nav a[aria-current="page"] {
+        background: #e8f5ee;
+        color: var(--green);
+      }
+
+      main {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        padding: clamp(18px, 4vw, 42px) clamp(14px, 3vw, 28px) 36px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(28px, 5vw, 44px);
+        line-height: 1.1;
+      }
+
+      .intro {
+        max-width: 720px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .prototype-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .prototype-card {
+        display: flex;
+        min-height: 190px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #fff;
+        text-decoration: none;
+        transition: border-color 120ms ease, transform 120ms ease;
+      }
+
+      .prototype-card:hover,
+      .prototype-card:focus-visible {
+        transform: translateY(-2px);
+        border-color: var(--green);
+      }
+
+      .prototype-card:focus-visible,
+      .home-link:focus-visible,
+      .prototype-nav a:focus-visible {
+        outline: 3px solid #78c994;
+        outline-offset: 3px;
+      }
+
+      .prototype-number {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .prototype-card h2 {
+        margin: 10px 0 6px;
+        font-size: 19px;
+      }
+
+      .prototype-card p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .launch {
+        margin-top: auto;
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      .notice {
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .viewer {
+        margin-top: 22px;
+      }
+
+      .viewer h1 {
+        font-size: clamp(23px, 4vw, 32px);
+      }
+
+      .viewer-description {
+        margin: 8px 0 14px;
+        color: var(--muted);
+      }
+
+      .prototype-frame {
+        display: block;
+        width: 100%;
+        height: min(78vh, 900px);
+        min-height: 560px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      @media (max-width: 680px) {
+        .site-bar {
+          gap: 8px;
+        }
+
+        .prototype-nav {
+          flex-basis: 100%;
+          justify-content: flex-start;
+          margin: 0 -4px;
+        }
+
+        .prototype-nav a {
+          padding: 8px;
+          font-size: 13px;
+        }
+
+        .prototype-frame {
+          height: 75vh;
+          min-height: 480px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-bar">
+      <a class="home-link" href="../index.html#resumen">← Página principal</a>
+      <nav class="prototype-nav" aria-label="Navegación de prototipos">
+        <a href="#inicio" data-route="inicio">Prototipos</a>
+        <a href="#portal" data-route="portal">1 · Portal APEX</a>
+        <a href="#dashboard" data-route="dashboard">2 · Dashboard CMMI</a>
+        <a href="#pipeline" data-route="pipeline">3 · Compliance-as-Code</a>
+        <a href="#chatbot" data-route="chatbot">4 · Chatbot y tickets</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="overview" aria-labelledby="page-title">
+        <p class="eyebrow">Banco ARQ · Demos interactivas</p>
+        <h1 id="page-title">Prototipos</h1>
+        <p class="intro">
+          Recorre las propuestas de servicio digital, control y seguridad. El menú superior
+          permite cambiar de prototipo y volver a la página principal en cualquier momento.
+        </p>
+        <div class="prototype-grid">
+          <a class="prototype-card" href="#portal">
+            <span class="prototype-number">PROTOTIPO 1</span>
+            <h2>Portal transaccional Oracle APEX</h2>
+            <p>Explora operaciones, solicitudes y mejoras del portal de autoservicio.</p>
+            <span class="launch">Abrir prototipo →</span>
+          </a>
+          <a class="prototype-card" href="#dashboard">
+            <span class="prototype-number">PROTOTIPO 2</span>
+            <h2>Dashboard CMMI MEA01</h2>
+            <p>Consulta indicadores de servicio, madurez y evolución de iniciativas.</p>
+            <span class="launch">Abrir prototipo →</span>
+          </a>
+          <a class="prototype-card" href="#pipeline">
+            <span class="prototype-number">PROTOTIPO 3</span>
+            <h2>Pipeline Compliance-as-Code</h2>
+            <p>Ejecuta análisis de código, controles de cumplimiento y el quality gate.</p>
+            <span class="launch">Abrir prototipo →</span>
+          </a>
+          <a class="prototype-card" href="#chatbot">
+            <span class="prototype-number">PROTOTIPO 4</span>
+            <h2>Chatbot y seguimiento de tickets</h2>
+            <p>Prueba el asistente de atención y revisa el estado de los tickets.</p>
+            <span class="launch">Abrir prototipo →</span>
+          </a>
+        </div>
+        <p class="notice">
+          Son demostraciones independientes con datos ilustrativos; sus cambios no se comparten
+          entre prototipos ni se guardan en un sistema bancario.
+        </p>
+      </section>
+
+      <section id="viewer" class="viewer" aria-labelledby="prototype-title" hidden>
+        <h1 id="prototype-title"></h1>
+        <p class="viewer-description" id="prototype-description"></p>
+        <iframe
+          class="prototype-frame"
+          id="prototype-frame"
+          title="Prototipo interactivo"
+          sandbox="allow-scripts"
+          loading="lazy"
+        ></iframe>
+      </section>
+    </main>
+
+    <script>
+      const prototypes = {
+        portal: {
+          title: '1 · Portal transaccional Oracle APEX',
+          description: 'Simulación de operaciones, solicitudes y controles del portal.',
+          file: './01-portal-oracle-apex.html',
+        },
+        dashboard: {
+          title: '2 · Dashboard CMMI MEA01',
+          description: 'Indicadores de servicio, madurez CMMI e iniciativas de mejora.',
+          file: './02-dashboard-cmmi-mea01.html',
+        },
+        pipeline: {
+          title: '3 · Pipeline Compliance-as-Code',
+          description: 'Prueba el análisis de código y el quality gate de seguridad.',
+          file: './03-pipeline-compliance-as-code.html',
+        },
+        chatbot: {
+          title: '4 · Chatbot y seguimiento de tickets',
+          description: 'Prueba el flujo del asistente y el seguimiento de tickets.',
+          file: './04-chatbot-seguimiento-tickets.html',
+        },
+      };
+
+      const overview = document.getElementById('overview');
+      const viewer = document.getElementById('viewer');
+      const title = document.getElementById('prototype-title');
+      const description = document.getElementById('prototype-description');
+      const frame = document.getElementById('prototype-frame');
+      const routes = [...document.querySelectorAll('[data-route]')];
+      let activeFile = '';
+
+      const renderRoute = () => {
+        const route = location.hash.slice(1) || 'inicio';
+        const prototype = prototypes[route];
+        overview.hidden = Boolean(prototype);
+        viewer.hidden = !prototype;
+        routes.forEach((link) => {
+          if (link.dataset.route === route) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+
+        if (!prototype) {
+          activeFile = '';
+          frame.removeAttribute('src');
+          document.title = 'Prototipos interactivos · Banco ARQ';
+          return;
+        }
+
+        title.textContent = prototype.title;
+        description.textContent = prototype.description;
+        document.title = `${prototype.title} · Banco ARQ`;
+        if (activeFile !== prototype.file) {
+          frame.src = prototype.file;
+          activeFile = prototype.file;
+        }
+      };
+
+      window.addEventListener('hashchange', renderRoute);
+      renderRoute();
+    </script>
+  </body>
+</html>

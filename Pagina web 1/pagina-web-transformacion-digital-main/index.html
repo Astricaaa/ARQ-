@@ -228,7 +228,7 @@
                   <p class="eyebrow">Una mirada práctica</p>
                   <p><strong>¿Cómo se traducen estas ideas en una experiencia digital?</strong> Explora el prototipo interactivo sobre gobierno de TI, seguridad y continuidad.</p>
                 </div>
-                <a class="btn" href="#guided-tour" data-show-guided-link>Ver prototipos <span aria-hidden="true">↗</span></a>
+                <a class="btn" href="./prototipos/" data-prototype-link>Ver prototipos <span aria-hidden="true">↗</span></a>
               </aside>
             </section>
           </div>
@@ -263,7 +263,7 @@
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#arq">Explorar el contenido <span aria-hidden="true">↓</span></a>
-              <a class="btn btn-primary" href="#guided-tour" data-show-guided-link>Prototipos <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-primary" href="./prototipos/" data-prototype-link>Prototipos <span aria-hidden="true">↗</span></a>
               <a
                 class="secondary-link"
                 href="https://pregrado.ucundinamarca.edu.co/login/index.php"
@@ -297,7 +297,7 @@
           <a href="#iso">ISO 27001</a>
           <a href="#pitch">Pitch</a>
           <a href="#sustentaciones">Sustentaciones</a>
-          <a href="#guided-tour" data-show-guided-link>Prototipos</a>
+          <a href="./prototipos/" data-prototype-link>Prototipos</a>
         </div>
         <img
           src="./assets/sello.png?v=20260918"
@@ -745,7 +745,7 @@
       });
 
       const sectionLinks = document.querySelectorAll(
-        '.nav-panel a:not([data-show-guided-link])',
+        '.nav-panel a:not([data-show-guided-link]):not([data-prototype-link])',
       );
       const observedSections = [...sectionLinks]
         .map((link) => document.querySelector(link.getAttribute('href')))

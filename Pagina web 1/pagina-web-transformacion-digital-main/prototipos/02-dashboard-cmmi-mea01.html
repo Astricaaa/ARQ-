@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Dashboard CMMI · MEA01 · Banco ARQ</title>
+<style>
+:root{--tx:#10281b;--mu:#5a7365;--g:#0a7d3c;--gl:#e8f5ee;--bd:#d5e6dc;--w:#8a5a00;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:12px 18px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:space-between;border-bottom:3px solid var(--g)}
+.brand{font-size:18px;color:var(--g)}.brand small{color:var(--mu);font-weight:400}.s{font-size:12.5px;color:var(--mu)}
+main{max-width:1050px;margin:0 auto;padding:16px 14px 40px}h2{margin:4px 0 2px;font-size:20px}h3{margin:0 0 8px;font-size:15px}.lead{color:var(--mu);margin:0 0 14px;font-size:14px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:14px}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--gl);border-radius:10px;padding:10px 12px}.kpi small{display:block;color:var(--mu);font-size:12px}.kpi b{font-size:19px;color:var(--g)}
+.btn{background:var(--g);color:#fff;border:0;border-radius:8px;padding:9px 14px;font:600 14px system-ui,sans-serif;cursor:pointer;margin:10px 6px 0 0}.btn.o{background:#fff;color:var(--g);border:1px solid var(--g);margin-top:0}.btn.on{background:var(--g);color:#fff}
+.oc{color:var(--g)}ul.l{list-style:none;margin:8px 0 0;padding:0;font-size:13px;max-height:170px;overflow:auto}ul.l li{padding:5px 0;border-bottom:1px dashed var(--bd)}
+.row{display:grid;grid-template-columns:1fr auto 36px;gap:10px;align-items:center;padding:6px 0;font-size:14px}
+.seg{display:flex;gap:3px}.seg i{width:24px;height:10px;border-radius:3px;background:var(--bd)}.seg i.f{background:var(--g)}.seg i.tg{outline:1.5px dashed var(--w);outline-offset:1px}
+</style></head><body>
+<header><b class="brand">🌿 Banco ARQ <small>· Control interno · MEA01</small></b><span class="s">Datos hipotéticos · Periodo mayo–octubre 2026</span></header>
+<main><h2>Dashboard de Control Interno y Madurez CMMI</h2><p class="lead">Disponibilidad del servicio, tiempos de resolución de incidentes y evolución del Nivel 1 al Nivel 4/5.</p>
+<div class="kp" id="kp"></div>
+<div class="g2"><div class="card"><h3>Tendencia mensual</h3><button class="btn o" data-m="av">Disponibilidad</button> <button class="btn o" data-m="mt">MTTR</button> <button class="btn o" data-m="in">Incidentes</button><div id="ch"></div></div>
+<div class="card"><h3>Madurez CMMI por proceso <span class="s">(meta: Nivel 4, punteado)</span></h3><div id="cm"></div><div style="margin-top:8px">Nivel global: <b class="oc" id="avg"></b></div><button class="btn" id="adv">Ejecutar siguiente iniciativa</button><button class="btn o" id="rst">Reiniciar</button><ul class="l" id="ini"></ul></div></div></main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const M=["May","Jun","Jul","Ago","Sep","Oct"],D={av:{n:"Disponibilidad del servicio (%)",v:[99.21,99.38,99.62,99.81,99.9,99.95]},mt:{n:"Tiempo medio de resolución, MTTR (horas)",v:[14.5,11.2,7.8,4.6,2.9,1.8]},in:{n:"Incidentes por mes",v:[31,27,22,15,11,8]}};let mk="av";
+function chart(){const d=D[mk],mx=mk=="av"?100:Math.max(...d.v),mn=mk=="av"?99:0;let s=`<svg viewBox="0 0 420 190" role="img" aria-label="${d.n}" style="width:100%"><text x="20" y="14" font-size="12" fill="#5a7365">${d.n}</text>`;
+d.v.forEach((v,i)=>{const h=Math.max(4,(v-mn)/(mx-mn)*125),x=20+i*66;s+=`<rect x="${x}" y="${150-h}" width="44" height="${h}" rx="4" fill="#0a7d3c" opacity="${(.45+i*.11).toFixed(2)}"/><text x="${x+22}" y="${144-h}" text-anchor="middle" font-size="12" fill="#10281b">${v}</text><text x="${x+22}" y="170" text-anchor="middle" font-size="12" fill="#5a7365">${M[i]}</text>`});
+$("#ch").innerHTML=s+"</svg>";$$("[data-m]").forEach(b=>b.classList.toggle("on",b.dataset.m==mk))}
+$$("[data-m]").forEach(b=>b.onclick=()=>{mk=b.dataset.m;chart()});chart();
+$("#kp").innerHTML=`<div class="kpi"><small>Disponibilidad (meta 99,9%)</small><b>99,95% ✔</b></div><div class="kpi"><small>MTTR (meta ≤ 4 h)</small><b>1,8 h ✔</b></div><div class="kpi"><small>Incidentes del mes</small><b>8 (−74% vs mayo)</b></div><div class="kpi"><small>Controles MEA01 en verde</small><b>17 / 20</b></div>`;
+const N=["","Inicial","Gestionado","Definido","Cuantitativo","Optimizado"],B=[["Gestión de incidentes",2],["Gestión de cambios",2],["Seguridad de la información",1],["Monitoreo y evaluación (MEA01)",2],["Gestión de datos",2]],I=["Catálogo único de servicios","Métricas SLA automatizadas","Segregación de funciones y MFA","Tablero MEA01 en tiempo real","Pipeline Compliance-as-Code"];let L=B.map(x=>x[1]),n=0;
+function cm(){$("#cm").innerHTML=B.map((b,i)=>`<div class="row"><span>${b[0]}</span><span class="seg">${[1,2,3,4,5].map(k=>`<i class="${k<=L[i]?"f":""}${k==4?" tg":""}"></i>`).join("")}</span><b>N${L[i]}</b></div>`).join("");const a=L.reduce((x,y)=>x+y)/L.length;$("#avg").textContent=a.toFixed(1)+" · "+N[Math.round(a)]}
+$("#adv").onclick=()=>{const m=Math.min(...L);if(m>=5)return;const i=L.indexOf(m);L[i]++;$("#ini").insertAdjacentHTML("afterbegin",`<li>✔ ${I[n++%5]} → ${B[i][0]} sube a N${L[i]} (${N[L[i]]})</li>`);cm()};
+$("#rst").onclick=()=>{L=B.map(x=>x[1]);n=0;$("#ini").innerHTML="";cm()};cm();
+</script></body></html>
