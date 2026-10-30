@@ -295,6 +295,7 @@
           <a href="#arq">ARQ</a>
           <a href="#cobit">COBIT 2019</a>
           <a href="#iso">ISO 27001</a>
+          <a href="#decision-route">Inversión, riesgos y activos</a>
           <a href="#pitch">Pitch</a>
           <a href="#sustentaciones">Sustentaciones</a>
           <a href="./prototipos/" data-prototype-link>Prototipos</a>
@@ -497,6 +498,192 @@
                   Planificación de continuidad y redundancia para responder ante interrupciones.
                 </p>
               </article>
+            </div>
+            <a class="btn decision-entry" href="#decision-route">
+              Explorar inversión, riesgos y activos <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </section>
+
+        <section
+          id="decision-route"
+          class="content-section decision-section"
+          aria-labelledby="decision-title"
+        >
+          <div class="section-heading">
+            <p class="eyebrow">Recorrido de decisión</p>
+            <h2 id="decision-title">¿Qué se necesita para operar con confianza?</h2>
+          </div>
+          <div class="decision-body">
+            <p class="decision-intro">
+              Una plataforma confiable requiere inversión, controles y protección de la
+              información. Explora cómo se conectan los recursos, los riesgos operativos y los
+              activos que sostienen el servicio.
+            </p>
+
+            <nav class="decision-steps" aria-label="Etapas del recorrido">
+              <button type="button" class="decision-step" data-decision-stage="1">
+                <span>01</span> Inversión y beneficios
+              </button>
+              <span class="decision-connector" aria-hidden="true">→</span>
+              <button type="button" class="decision-step" data-decision-stage="2">
+                <span>02</span> Riesgos y controles
+              </button>
+              <span class="decision-connector" aria-hidden="true">→</span>
+              <button type="button" class="decision-step" data-decision-stage="3">
+                <span>03</span> Activos protegidos
+              </button>
+            </nav>
+
+            <div class="decision-progress" id="decision-progress" hidden>
+              <div class="decision-progress-label">
+                <span id="decision-progress-text">Etapa 1 de 3</span>
+                <span id="decision-progress-name">Inversión y beneficios</span>
+              </div>
+              <progress id="decision-progress-bar" max="3" value="1">1 de 3</progress>
+            </div>
+
+            <div class="decision-overview" id="decision-overview">
+              <p>
+                Sigue la secuencia completa o selecciona una etapa para ir directamente a ella.
+                Los controles de cada etapa conectan las decisiones financieras con la operación
+                y la información que se debe proteger.
+              </p>
+              <button class="btn" type="button" data-start-decision>
+                Iniciar recorrido <span aria-hidden="true">→</span>
+              </button>
+            </div>
+
+            <div class="decision-panel" data-decision-panel="1" hidden>
+              <h3>01 · Inversión y beneficios</h3>
+              <p class="decision-lead">¿Qué requiere la plataforma y qué beneficios se proyectan?</p>
+              <div class="investment-sequence" aria-label="Inversión inicial estimada">
+                <details class="investment-item">
+                  <summary><span>01 · Infraestructura tecnológica</span><strong>$120 M COP</strong></summary>
+                  <p>Servicios en la nube, alta disponibilidad y herramientas de protección de datos.</p>
+                </details>
+                <span class="investment-plus" aria-hidden="true">+</span>
+                <details class="investment-item">
+                  <summary><span>02 · Gobierno y seguridad</span><strong>$85 M COP</strong></summary>
+                  <p>Consultoría para definir responsabilidades, controles y prioridades, con marcos como COBIT 2019 e ISO/IEC 27001.</p>
+                </details>
+                <span class="investment-plus" aria-hidden="true">+</span>
+                <details class="investment-item">
+                  <summary><span>03 · Personas y adopción</span><strong>$45 M COP</strong></summary>
+                  <p>Capacitación en Oracle APEX, programación segura y cultura digital ética.</p>
+                </details>
+                <div class="investment-total">
+                  <span>Inversión inicial estimada</span><strong>$250 millones COP</strong>
+                </div>
+              </div>
+
+              <h4 class="decision-subheading">Beneficios anuales proyectados</h4>
+              <div class="benefit-options">
+                <label class="benefit-option">
+                  <input type="checkbox" data-benefit="110" checked />
+                  <span><strong>$110 M COP/año</strong><small>Ahorro operativo y de soporte estimado</small></span>
+                </label>
+                <label class="benefit-option">
+                  <input type="checkbox" data-benefit="250" checked />
+                  <span><strong>$250 M COP/año</strong><small>Costos potencialmente evitados; no son ahorro garantizado</small></span>
+                </label>
+                <label class="benefit-option">
+                  <input type="checkbox" data-benefit="180" checked />
+                  <span><strong>$180 M COP/año</strong><small>Ingresos asociados, sujetos al volumen de transacciones</small></span>
+                </label>
+              </div>
+              <p class="benefit-total" aria-live="polite">
+                Beneficios anuales seleccionados: <strong id="benefit-total">$540 millones COP</strong>
+              </p>
+              <p class="decision-caveat">
+                Son proyecciones sujetas a la implementación, la adopción, el volumen de
+                transacciones y los resultados reales. Los costos evitados no equivalen
+                necesariamente a ingresos o ahorros realizados.
+              </p>
+            </div>
+
+            <div class="decision-panel" data-decision-panel="2" hidden>
+              <h3>02 · Riesgos y controles</h3>
+              <p class="decision-lead">¿Qué situaciones podrían afectar la operación?</p>
+              <div class="risk-layout">
+                <div class="risk-map" role="group" aria-label="Componentes del servicio">
+                  <button type="button" class="risk-node is-selected" data-risk="database" aria-pressed="true">
+                    <span aria-hidden="true">01</span><strong>Base de datos</strong><small>Datos</small>
+                  </button>
+                  <button type="button" class="risk-node" data-risk="platform" aria-pressed="false">
+                    <span aria-hidden="true">02</span><strong>Plataforma COP–USD</strong><small>Servicio</small>
+                  </button>
+                  <button type="button" class="risk-node" data-risk="records" aria-pressed="false">
+                    <span aria-hidden="true">03</span><strong>Registros contables</strong><small>Transacciones</small>
+                  </button>
+                  <button type="button" class="risk-node" data-risk="credentials" aria-pressed="false">
+                    <span aria-hidden="true">04</span><strong>Credenciales y API</strong><small>Accesos</small>
+                  </button>
+                </div>
+                <article class="risk-detail" aria-live="polite">
+                  <p class="eyebrow">Riesgo → impacto → control</p>
+                  <h4 id="risk-title">Base de datos central</h4>
+                  <dl>
+                    <div><dt>Riesgo</dt><dd id="risk-description">Filtración de datos sensibles.</dd></div>
+                    <div><dt>Impacto</dt><dd id="risk-impact">Afectación de la privacidad y de la confianza en el servicio.</dd></div>
+                    <div><dt>Controles</dt><dd id="risk-controls">Cifrado en almacenamiento y transmisión, enmascaramiento y acceso limitado.</dd></div>
+                  </dl>
+                </article>
+              </div>
+              <p class="decision-caveat">
+                Los controles son medidas propuestas; su aplicación y efectividad deben validarse
+                en la implementación.
+              </p>
+            </div>
+
+            <div class="decision-panel" data-decision-panel="3" hidden>
+              <h3>03 · Activos protegidos</h3>
+              <p class="decision-lead">¿Qué debemos proteger para que el servicio siga funcionando?</p>
+              <div class="asset-inventory">
+                <details class="asset-item">
+                  <summary><span>01</span><strong>Datos financieros y transaccionales</strong></summary>
+                  <p><b>Qué contiene:</b> registros contables, saldos e historial de operaciones en COP y USD.</p>
+                  <p><b>Para qué se usa:</b> respaldar la operación, la conciliación y la consulta financiera.</p>
+                  <p><b>Propiedades relevantes:</b> integridad y disponibilidad.</p>
+                </details>
+                <details class="asset-item">
+                  <summary><span>02</span><strong>Datos personales y de verificación (KYC/AML)</strong></summary>
+                  <p><b>Qué contiene:</b> datos de identificación y verificaciones relacionadas con la prevención del lavado de activos.</p>
+                  <p><b>Para qué se usa:</b> procesos de identificación y verificación para los fines autorizados.</p>
+                  <p><b>Propiedades relevantes:</b> confidencialidad, integridad y disponibilidad.</p>
+                </details>
+                <details class="asset-item">
+                  <summary><span>03</span><strong>Infraestructura y bases de datos centrales</strong></summary>
+                  <p><b>Qué contiene:</b> bases de datos, aplicaciones y APIs que procesan o intercambian información.</p>
+                  <p><b>Para qué se usa:</b> sostener el funcionamiento e intercambio de información del servicio.</p>
+                  <p><b>Propiedades relevantes:</b> confidencialidad, integridad y disponibilidad.</p>
+                </details>
+                <details class="asset-item">
+                  <summary><span>04</span><strong>Credenciales y claves de seguridad</strong></summary>
+                  <p><b>Qué contiene:</b> contraseñas, tokens de API y llaves de cifrado.</p>
+                  <p><b>Para qué se usa:</b> autenticar y proteger el acceso a sistemas y datos.</p>
+                  <p><b>Propiedades relevantes:</b> confidencialidad e integridad.</p>
+                </details>
+              </div>
+              <div class="decision-summary">
+                <p class="eyebrow">La historia completa</p>
+                <p><strong>La inversión habilita capacidades</strong> → los controles reducen la
+                  exposición a riesgos → la protección de activos respalda la operación.</p>
+              </div>
+              <p class="decision-caveat">
+                Estas cifras y controles representan una proyección; deben validarse frente a los
+                costos, prácticas y resultados reales de la implementación.
+              </p>
+            </div>
+
+            <div class="decision-navigation">
+              <button class="btn btn-preview" id="decision-back" type="button" hidden>← Anterior</button>
+              <button class="btn" id="decision-next" type="button" hidden>
+                Continuar <span aria-hidden="true">→</span>
+              </button>
+              <button class="secondary-link" id="decision-restart" type="button" hidden>
+                Volver al mapa
+              </button>
             </div>
           </div>
         </section>
@@ -743,6 +930,111 @@
           pdfPreview.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
+
+      const decisionOverview = document.getElementById('decision-overview');
+      const decisionProgress = document.getElementById('decision-progress');
+      const decisionProgressText = document.getElementById('decision-progress-text');
+      const decisionProgressName = document.getElementById('decision-progress-name');
+      const decisionProgressBar = document.getElementById('decision-progress-bar');
+      const decisionPanels = [...document.querySelectorAll('[data-decision-panel]')];
+      const decisionSteps = [...document.querySelectorAll('[data-decision-stage]')];
+      const decisionBack = document.getElementById('decision-back');
+      const decisionNext = document.getElementById('decision-next');
+      const decisionRestart = document.getElementById('decision-restart');
+      const decisionStageNames = ['Inversión y beneficios', 'Riesgos y controles', 'Activos protegidos'];
+      let currentDecisionStage = 0;
+
+      const setDecisionStage = (stage) => {
+        currentDecisionStage = Math.max(0, Math.min(stage, decisionStageNames.length));
+        const isOverview = currentDecisionStage === 0;
+        decisionOverview.hidden = !isOverview;
+        decisionProgress.hidden = isOverview;
+        decisionPanels.forEach((panel) => {
+          panel.hidden = Number(panel.dataset.decisionPanel) !== currentDecisionStage;
+        });
+        decisionSteps.forEach((button) => {
+          const buttonStage = Number(button.dataset.decisionStage);
+          button.classList.toggle('is-current', buttonStage === currentDecisionStage);
+          button.classList.toggle('is-complete', buttonStage < currentDecisionStage);
+          button.setAttribute('aria-pressed', String(buttonStage === currentDecisionStage));
+        });
+        decisionProgressText.textContent = `Etapa ${currentDecisionStage} de ${decisionStageNames.length}`;
+        decisionProgressName.textContent = decisionStageNames[currentDecisionStage - 1] || '';
+        decisionProgressBar.value = currentDecisionStage || 1;
+        decisionProgressBar.textContent = `${currentDecisionStage} de ${decisionStageNames.length}`;
+        decisionBack.hidden = isOverview || currentDecisionStage === 1;
+        decisionNext.hidden = isOverview || currentDecisionStage === decisionStageNames.length;
+        decisionNext.innerHTML = currentDecisionStage === decisionStageNames.length - 1
+          ? 'Ver activos protegidos <span aria-hidden="true">→</span>'
+          : 'Continuar <span aria-hidden="true">→</span>';
+        decisionRestart.hidden = isOverview;
+      };
+
+      decisionSteps.forEach((button) => {
+        button.addEventListener('click', () => setDecisionStage(Number(button.dataset.decisionStage)));
+      });
+      document.querySelector('[data-start-decision]').addEventListener('click', () => setDecisionStage(1));
+      decisionBack.addEventListener('click', () => setDecisionStage(currentDecisionStage - 1));
+      decisionNext.addEventListener('click', () => setDecisionStage(currentDecisionStage + 1));
+      decisionRestart.addEventListener('click', () => setDecisionStage(0));
+
+      const benefitTotal = document.getElementById('benefit-total');
+      document.querySelectorAll('[data-benefit]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const total = [...document.querySelectorAll('[data-benefit]:checked')]
+            .reduce((sum, benefit) => sum + Number(benefit.dataset.benefit), 0);
+          benefitTotal.textContent = `$${total} millones COP`;
+        });
+      });
+
+      const decisionRisks = {
+        database: {
+          title: 'Base de datos central',
+          risk: 'Filtración de datos sensibles.',
+          impact: 'Afectación de la privacidad y de la confianza en el servicio.',
+          controls: 'Cifrado en almacenamiento y transmisión, enmascaramiento y acceso limitado.',
+        },
+        platform: {
+          title: 'Plataforma de paridad COP–USD',
+          risk: 'Interrupción o indisponibilidad del servicio.',
+          impact: 'Transacciones no disponibles y afectación operativa.',
+          controls: 'Infraestructura redundante, balanceo de carga, mitigación DDoS y pruebas de continuidad.',
+        },
+        records: {
+          title: 'Registros contables y transacciones',
+          risk: 'Inconsistencias entre sistemas o registros.',
+          impact: 'Reportes y conciliaciones inexactos.',
+          controls: 'Fuente única de información y conciliaciones automatizadas para detectar diferencias.',
+        },
+        credentials: {
+          title: 'Credenciales y llaves API',
+          risk: 'Acceso no autorizado por phishing o robo de credenciales.',
+          impact: 'Exposición de sistemas o información sensible.',
+          controls: 'Autenticación robusta, permisos limitados, gestión segura de llaves y capacitación.',
+        },
+      };
+      const riskFields = {
+        title: document.getElementById('risk-title'),
+        risk: document.getElementById('risk-description'),
+        impact: document.getElementById('risk-impact'),
+        controls: document.getElementById('risk-controls'),
+      };
+
+      document.querySelectorAll('[data-risk]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const risk = decisionRisks[button.dataset.risk];
+          document.querySelectorAll('[data-risk]').forEach((node) => {
+            const isSelected = node === button;
+            node.classList.toggle('is-selected', isSelected);
+            node.setAttribute('aria-pressed', String(isSelected));
+          });
+          Object.keys(riskFields).forEach((field) => {
+            riskFields[field].textContent = risk[field];
+          });
+        });
+      });
+
+      setDecisionStage(0);
 
       const sectionLinks = document.querySelectorAll(
         '.nav-panel a:not([data-show-guided-link]):not([data-prototype-link])',

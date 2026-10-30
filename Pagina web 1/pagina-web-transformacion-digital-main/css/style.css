@@ -733,6 +733,426 @@ p {
   font-weight: 700;
 }
 
+.decision-entry {
+  margin-top: 12px;
+}
+
+.decision-section {
+  align-items: start;
+}
+
+.decision-body {
+  min-width: 0;
+  max-width: 900px;
+}
+
+.decision-intro,
+.decision-overview > p,
+.decision-lead {
+  color: var(--graphite);
+  line-height: 1.7;
+}
+
+.decision-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 18px;
+}
+
+.decision-step {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-white);
+  color: var(--graphite);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.84rem;
+  text-align: left;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.decision-step span {
+  color: var(--arq-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.decision-step:hover,
+.decision-step.is-current {
+  border-color: var(--arq-accent);
+  background: var(--arq-accent);
+  color: var(--paper-white);
+}
+
+.decision-step.is-current span {
+  color: var(--paper-white);
+}
+
+.decision-step.is-complete {
+  border-color: var(--arq-accent);
+  background: var(--arq-accent-soft);
+  color: var(--arq-accent);
+}
+
+.decision-connector {
+  color: var(--soft-ash);
+}
+
+.decision-progress {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+
+.decision-progress-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  color: var(--soft-ash);
+  font-size: 0.82rem;
+}
+
+.decision-progress progress {
+  width: 100%;
+  height: 7px;
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: #d7d7d7;
+}
+
+.decision-progress progress::-webkit-progress-bar {
+  border-radius: 999px;
+  background: #d7d7d7;
+}
+
+.decision-progress progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--arq-accent);
+}
+
+.decision-progress progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--arq-accent);
+}
+
+.decision-overview,
+.decision-panel {
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-white);
+}
+
+.decision-panel h3 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.decision-panel h4 {
+  margin: 24px 0 10px;
+  font-size: 1.05rem;
+}
+
+.decision-lead {
+  margin-bottom: 20px;
+}
+
+.investment-sequence {
+  display: grid;
+  gap: 8px;
+}
+
+.investment-item,
+.asset-item {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.investment-item summary,
+.asset-item summary {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  list-style-position: inside;
+}
+
+.investment-item summary strong {
+  flex: 0 0 auto;
+  color: var(--arq-accent);
+}
+
+.investment-item > p,
+.asset-item > p {
+  margin: 0;
+  padding: 0 14px 12px 34px;
+  color: var(--graphite);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.investment-item[open] summary,
+.asset-item[open] summary {
+  color: var(--arq-accent);
+}
+
+.investment-plus {
+  justify-self: center;
+  color: var(--soft-ash);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.investment-total {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 14px;
+  border-radius: 9px;
+  background: var(--charcoal-ink);
+  color: var(--paper-white);
+  font-size: 0.95rem;
+}
+
+.benefit-options {
+  display: grid;
+  gap: 8px;
+}
+
+.benefit-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.benefit-option input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin: 3px 0 0;
+  accent-color: var(--arq-accent);
+}
+
+.benefit-option span,
+.benefit-option small {
+  display: block;
+}
+
+.benefit-option strong {
+  color: var(--arq-accent);
+}
+
+.benefit-option small {
+  margin-top: 2px;
+  color: var(--graphite);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.benefit-total {
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+
+.benefit-total strong {
+  color: var(--arq-accent);
+}
+
+.decision-caveat {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--arq-accent);
+  background: var(--arq-accent-soft);
+  color: var(--graphite);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.risk-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 14px;
+}
+
+.risk-map {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f7f8f7;
+}
+
+.risk-node {
+  display: grid;
+  min-height: 106px;
+  align-content: start;
+  justify-items: start;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--paper-white);
+  color: var(--charcoal-ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.risk-node > span,
+.risk-node small {
+  color: var(--soft-ash);
+  font-size: 0.75rem;
+}
+
+.risk-node strong {
+  font-size: 0.88rem;
+}
+
+.risk-node.is-selected {
+  border-color: var(--arq-accent);
+  box-shadow: inset 0 0 0 1px var(--arq-accent);
+  background: var(--arq-accent-soft);
+}
+
+.risk-node.is-selected > span,
+.risk-node.is-selected small {
+  color: var(--arq-accent);
+}
+
+.risk-detail {
+  min-width: 0;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--charcoal-ink);
+  color: var(--paper-white);
+}
+
+.risk-detail .eyebrow {
+  margin-bottom: 8px;
+  color: #b4d7cb;
+  font-size: 0.7rem;
+}
+
+.risk-detail h4 {
+  margin: 0 0 16px;
+  font-size: 1.2rem;
+}
+
+.risk-detail dl,
+.risk-detail dl > div {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+
+.risk-detail dl {
+  gap: 12px;
+}
+
+.risk-detail dt {
+  color: #b4d7cb;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.risk-detail dd {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.asset-inventory {
+  display: grid;
+  gap: 8px;
+}
+
+.asset-item summary {
+  justify-content: flex-start;
+}
+
+.asset-item summary span {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--arq-accent-soft);
+  color: var(--arq-accent);
+  font-size: 0.72rem;
+}
+
+.decision-summary {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 10px;
+  background: var(--arq-accent-soft);
+}
+
+.decision-summary .eyebrow {
+  margin-bottom: 8px;
+  color: var(--arq-accent);
+  font-size: 0.75rem;
+}
+
+.decision-summary p:last-child {
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.decision-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 16px;
+}
+
+.decision-navigation .btn {
+  min-height: 42px;
+  padding: 9px 16px;
+  font-size: 0.9rem;
+}
+
+.decision-navigation .btn-preview {
+  border-color: var(--line);
+  background: var(--paper-white);
+  color: var(--charcoal-ink);
+}
+
+.decision-navigation .secondary-link {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
 .detail-block {
   margin-top: 20px;
   border-top: 1px solid var(--line);
@@ -1157,6 +1577,10 @@ p {
   .security-grid {
     grid-template-columns: 1fr;
   }
+
+  .decision-body {
+    max-width: none;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1329,6 +1753,38 @@ p {
   .benefit-grid,
   .security-grid {
     grid-template-columns: 1fr;
+  }
+
+  .decision-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .decision-step {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .decision-connector {
+    display: none;
+  }
+
+  .risk-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-item summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .decision-navigation {
+    align-items: stretch;
+  }
+
+  .decision-navigation .btn {
+    flex: 1 1 auto;
   }
 
   .feature-art {
